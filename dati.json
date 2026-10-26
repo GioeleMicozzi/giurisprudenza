@@ -17,14 +17,9 @@
    "nome": "Riassunto completo"
   },
   {
-   "tipo": "presentazioni",
-   "emoji": "📊",
-   "nome": "Presentazioni"
-  },
-  {
    "tipo": "slide",
    "emoji": "🖥",
-   "nome": "Slide"
+   "nome": "Slide NotebookLM"
   },
   {
    "tipo": "audio",
@@ -67,12 +62,6 @@
      "titolo": "Riassunto completo",
      "data": "2026-10-26",
      "link": "https://t.me/c/4330041943/13/29"
-    },
-    {
-     "tipo": "presentazioni",
-     "titolo": "Presentazioni complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/13/30"
     },
     {
      "tipo": "audio",
@@ -128,12 +117,6 @@
      "titolo": "Riassunto completo",
      "data": "2026-10-26",
      "link": "https://t.me/c/4330041943/16/74"
-    },
-    {
-     "tipo": "presentazioni",
-     "titolo": "Presentazioni complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/16/75"
     },
     {
      "tipo": "audio",
@@ -401,12 +384,6 @@
      "link": "https://t.me/c/4330041943/18/98"
     },
     {
-     "tipo": "presentazioni",
-     "titolo": "Presentazioni complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/18/99"
-    },
-    {
      "tipo": "audio",
      "titolo": "Audio dei video, tutti uniti",
      "data": "2026-10-26",
@@ -552,12 +529,6 @@
      "link": "https://t.me/c/4330041943/20/120"
     },
     {
-     "tipo": "presentazioni",
-     "titolo": "Presentazioni complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/20/121"
-    },
-    {
      "tipo": "audio",
      "titolo": "Audio dei video, tutti uniti",
      "data": "2026-10-26",
@@ -689,12 +660,6 @@
      "titolo": "Riassunto completo",
      "data": "2026-10-26",
      "link": "https://t.me/c/4330041943/22/144"
-    },
-    {
-     "tipo": "presentazioni",
-     "titolo": "Presentazioni complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/22/145"
     },
     {
      "tipo": "audio",
