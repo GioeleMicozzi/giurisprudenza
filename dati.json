@@ -1,5 +1,5 @@
 {
- "aggiornato": "26/10/2026 23:19",
+ "aggiornato": "26/10/2026 23:30",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -55,31 +55,774 @@
    "nome": "Diritto commerciale",
    "anno": "II anno",
    "link": "https://t.me/c/4330041943/13",
-   "file": []
+   "file": [
+    {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/13/31"
+    },
+    {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/13/29"
+    },
+    {
+     "tipo": "presentazioni",
+     "titolo": "Presentazioni complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/13/30"
+    },
+    {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/13/32"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "30/09 · Professioni intellettuali e imprenditore agricolo",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/13/25"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "30/09 · Professioni intellettuali e imprenditore agricolo",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/13/28"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "25/09 · Le origini del diritto commerciale e l'imprenditore",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/13/24"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "25/09 · Le origini del diritto commerciale e l'imprenditore",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/13/27"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/09 · Introduzione - Diritto dell'impresa",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/13/26"
+    }
+   ]
   },
   {
    "nome": "Diritto del lavoro",
    "anno": "II anno",
    "link": "https://t.me/c/4330041943/16",
-   "file": []
+   "file": [
+    {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/76"
+    },
+    {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/74"
+    },
+    {
+     "tipo": "presentazioni",
+     "titolo": "Presentazioni complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/75"
+    },
+    {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/77"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "26/10 · Sanzioni per la sicurezza, rischio elettivo, RLS - artt. 2104-2106 cc",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/53"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "26/10 · Sanzioni per la sicurezza, rischio elettivo, RLS - artt. 2104-2106 cc",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/16/73"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "22/10 · La sicurezza - obblighi, delega di funzioni, medico competente",
+     "data": "2026-10-22",
+     "link": "https://t.me/c/4330041943/16/52"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "22/10 · La sicurezza - obblighi, delega di funzioni, medico competente",
+     "data": "2026-10-22",
+     "link": "https://t.me/c/4330041943/16/72"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "21/10 · La sicurezza sul lavoro - art. 2087 cc e d.lgs. 81-2008, i soggetti",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/16/51"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "21/10 · La sicurezza sul lavoro - art. 2087 cc e d.lgs. 81-2008, i soggetti",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/16/71"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "20/10 · La retribuzione - art. 36 Cost., salario minimo, forme e nozione",
+     "data": "2026-10-20",
+     "link": "https://t.me/c/4330041943/16/50"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "20/10 · La retribuzione",
+     "data": "2026-10-20",
+     "link": "https://t.me/c/4330041943/16/70"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "19/10 · Esercitazione - la lettera di demansionamento",
+     "data": "2026-10-19",
+     "link": "https://t.me/c/4330041943/16/49"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "19/10 · Esercitazione - la lettera di demansionamento",
+     "data": "2026-10-19",
+     "link": "https://t.me/c/4330041943/16/69"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "15/10 · Mansioni e trasferimento - art. 2103 cc",
+     "data": "2026-10-15",
+     "link": "https://t.me/c/4330041943/16/47"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "15/10 · Le mansioni e il trasferimento (art. 2103 cc)",
+     "data": "2026-10-15",
+     "link": "https://t.me/c/4330041943/16/68"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "14/10 · Distacco, prestazioni occasionali, inquadramento e mansioni",
+     "data": "2026-10-14",
+     "link": "https://t.me/c/4330041943/16/46"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "14/10 · Distacco, prestazioni occasionali, inquadramento e mansioni",
+     "data": "2026-10-14",
+     "link": "https://t.me/c/4330041943/16/67"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "13/10 · Appalto, intermediazione e distacco",
+     "data": "2026-10-13",
+     "link": "https://t.me/c/4330041943/16/45"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "13/10 · Appalto, intermediazione e distacco",
+     "data": "2026-10-13",
+     "link": "https://t.me/c/4330041943/16/66"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "08/10 · La somministrazione di lavoro - disciplina, tutele, irregolarita e frode",
+     "data": "2026-10-08",
+     "link": "https://t.me/c/4330041943/16/44"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "08/10 · La somministrazione di lavoro - disciplina, tutele, irregolarita e frode",
+     "data": "2026-10-08",
+     "link": "https://t.me/c/4330041943/16/65"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "07/10 · Lavoro intermittente, apprendistato e somministrazione",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/16/43"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "07/10 · Lavoro intermittente, apprendistato e somministrazione",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/16/64"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "06/10 · Il lavoro a tempo parziale",
+     "data": "2026-10-06",
+     "link": "https://t.me/c/4330041943/16/42"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "06/10 · Il lavoro a tempo parziale",
+     "data": "2026-10-06",
+     "link": "https://t.me/c/4330041943/16/63"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "05/10 · Il contratto a termine - precedenza, parita di trattamento, computo, impugnazione e indennita",
+     "data": "2026-10-05",
+     "link": "https://t.me/c/4330041943/16/41"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "05/10 · Il contratto a termine - precedenza, parita di trattamento, computo, impugnazione e indennita",
+     "data": "2026-10-05",
+     "link": "https://t.me/c/4330041943/16/62"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "01/10 · Il contratto a termine - causali, durata, proroghe, rinnovi e limiti",
+     "data": "2026-10-01",
+     "link": "https://t.me/c/4330041943/16/40"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "01/10 · Il contratto a termine - causali, durata, proroghe, rinnovi e limiti",
+     "data": "2026-10-01",
+     "link": "https://t.me/c/4330041943/16/61"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "30/09 · Rider, patto di prova, patto di non concorrenza, contratto a termine",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/16/39"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "30/09 · Rider, patto di prova, patto di non concorrenza, contratto a termine",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/16/60"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "29/09 · Contratto individuale, decreto trasparenza e patto di prova",
+     "data": "2026-09-29",
+     "link": "https://t.me/c/4330041943/16/38"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "29/09 · Contratto individuale, decreto trasparenza e patto di prova",
+     "data": "2026-09-29",
+     "link": "https://t.me/c/4330041943/16/59"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "28/09 · Collocamento e costituzione del rapporto di lavoro",
+     "data": "2026-09-28",
+     "link": "https://t.me/c/4330041943/16/37"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "28/09 · Collocamento e costituzione del rapporto di lavoro",
+     "data": "2026-09-28",
+     "link": "https://t.me/c/4330041943/16/58"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "24/09 · Rider lavoro agile e certificazione dei contratti",
+     "data": "2026-09-24",
+     "link": "https://t.me/c/4330041943/16/36"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "24/09 · Rider lavoro agile e certificazione dei contratti",
+     "data": "2026-09-24",
+     "link": "https://t.me/c/4330041943/16/57"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "23/09 · Lavoro autonomo parasubordinazione e rider",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/16/35"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/09 · Lavoro autonomo parasubordinazione e rider",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/16/56"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "22/09 · Le norme del codice civile e la prova della subordinazione",
+     "data": "2026-09-22",
+     "link": "https://t.me/c/4330041943/16/34"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "22/09 · Le norme del codice civile e la prova della subordinazione",
+     "data": "2026-09-22",
+     "link": "https://t.me/c/4330041943/16/55"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "21/09 · Introduzione al corso, lavoro subordinato e autonomo",
+     "data": "2026-09-21",
+     "link": "https://t.me/c/4330041943/16/33"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "21/09 · Introduzione al corso, lavoro subordinato e autonomo",
+     "data": "2026-09-21",
+     "link": "https://t.me/c/4330041943/16/54"
+    }
+   ]
   },
   {
    "nome": "Fondamenti dell'argomentazione normativa",
    "anno": "II anno",
    "link": "https://t.me/c/4330041943/18",
-   "file": []
+   "file": [
+    {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/18/100"
+    },
+    {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/18/98"
+    },
+    {
+     "tipo": "presentazioni",
+     "titolo": "Presentazioni complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/18/99"
+    },
+    {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/18/101"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "23/10 · Il principio di rilevanza",
+     "data": "2026-10-23",
+     "link": "https://t.me/c/4330041943/18/87"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/10 · Il principio di rilevanza",
+     "data": "2026-10-23",
+     "link": "https://t.me/c/4330041943/18/97"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "21/10 · La doppia vulnerabilità delle istituzioni e la critica",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/18/86"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "21/10 · La doppia vulnerabilità delle istituzioni e la critica",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/18/96"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "16/10 · Thomson, Finnis e le tre fasi del discorso normativo",
+     "data": "2026-10-16",
+     "link": "https://t.me/c/4330041943/18/85"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "16/10 · Thomson, Finnis e le tre fasi del discorso normativo",
+     "data": "2026-10-16",
+     "link": "https://t.me/c/4330041943/18/95"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "14/10 · Seminario di Edoardo Messineo - argomentare il privilegio",
+     "data": "2026-10-14",
+     "link": "https://t.me/c/4330041943/18/84"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "14/10 · Seminario di Edoardo Messineo - argomentare il privilegio",
+     "data": "2026-10-14",
+     "link": "https://t.me/c/4330041943/18/94"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "09/10 · La complessificazione dell'eguaglianza",
+     "data": "2026-10-09",
+     "link": "https://t.me/c/4330041943/18/83"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "09/10 · La complessificazione dell'eguaglianza",
+     "data": "2026-10-09",
+     "link": "https://t.me/c/4330041943/18/93"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "07/10 · Autonomia, regole regolative e regole costitutive",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/18/82"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "07/10 · Autonomia, regole regolative e regole costitutive",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/18/92"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "02/10 · Dicotomie e distinzioni per gradi",
+     "data": "2026-10-02",
+     "link": "https://t.me/c/4330041943/18/81"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "02/10 · Dicotomie e distinzioni per gradi",
+     "data": "2026-10-02",
+     "link": "https://t.me/c/4330041943/18/91"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "30/09 · Seminario su Rawls - il libro di Nicola Riva",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/18/80"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "30/09 · Seminario su Rawls - il libro di Nicola Riva",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/18/90"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "25/09 · Rawls, affirmative action e comunitarismo",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/18/79"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "25/09 · Rawls, affirmative action e comunitarismo",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/18/89"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "23/09 · Le quattro tradizioni dell'eguaglianza",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/18/78"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/09 · Le quattro tradizioni dell'eguaglianza",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/18/88"
+    }
+   ]
   },
   {
    "nome": "Inglese",
    "anno": "II anno",
    "link": "https://t.me/c/4330041943/20",
-   "file": []
+   "file": [
+    {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/122"
+    },
+    {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/120"
+    },
+    {
+     "tipo": "presentazioni",
+     "titolo": "Presentazioni complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/121"
+    },
+    {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/123"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "26/10 · Il passivo con due oggetti, i passivi dell'appello 2024, first e second conditional",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/110"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "26/10 · Il passivo con due oggetti, i passivi dell'appello 2024, first e second conditional",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/20/119"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "21/10 · Le parole del processo, i modali dell'appello 2024, la forma passiva",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/20/109"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "21/10 · Le parole del processo, i modali dell'appello 2024, la forma passiva",
+     "data": "2026-10-21",
+     "link": "https://t.me/c/4330041943/20/118"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "19/10 · Modali di obbligo e di deduzione, notizie di cronaca nera",
+     "data": "2026-10-19",
+     "link": "https://t.me/c/4330041943/20/108"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "19/10 · Modali di obbligo e di deduzione, notizie di cronaca nera",
+     "data": "2026-10-19",
+     "link": "https://t.me/c/4330041943/20/117"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "07/10 · Com'è fatto l'esame, present perfect o past simple, le parole essenziali del diritto",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/20/107"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "07/10 · Com'è fatto l'esame, present perfect o past simple, le parole essenziali del diritto",
+     "data": "2026-10-07",
+     "link": "https://t.me/c/4330041943/20/116"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "05/10 · Correzione dei compiti sul futuro, i nomi dei reati e il present perfect",
+     "data": "2026-10-05",
+     "link": "https://t.me/c/4330041943/20/106"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "05/10 · Correzione dei compiti sul futuro, i nomi dei reati e il present perfect",
+     "data": "2026-10-05",
+     "link": "https://t.me/c/4330041943/20/115"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "30/09 · Le forme del futuro e la correzione dei compiti",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/20/105"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "30/09 · Le forme del futuro e la correzione dei compiti",
+     "data": "2026-09-30",
+     "link": "https://t.me/c/4330041943/20/114"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "28/09 · Past perfect, verbi irregolari e lessico del crimine",
+     "data": "2026-09-28",
+     "link": "https://t.me/c/4330041943/20/104"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "28/09 · Past perfect, verbi irregolari e lessico del crimine",
+     "data": "2026-09-28",
+     "link": "https://t.me/c/4330041943/20/113"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "23/09 · Past tenses e lessico giuridico",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/20/103"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/09 · Past tenses e lessico giuridico",
+     "data": "2026-09-23",
+     "link": "https://t.me/c/4330041943/20/112"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "21/09 · Present simple e continuous, Crime and punishment",
+     "data": "2026-09-21",
+     "link": "https://t.me/c/4330041943/20/102"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "21/09 · Present simple e continuous, Crime and punishment",
+     "data": "2026-09-21",
+     "link": "https://t.me/c/4330041943/20/111"
+    }
+   ]
   },
   {
    "nome": "Sistemi giuridici comparati",
    "anno": "II anno",
    "link": "https://t.me/c/4330041943/22",
-   "file": []
+   "file": [
+    {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/22/146"
+    },
+    {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/22/144"
+    },
+    {
+     "tipo": "presentazioni",
+     "titolo": "Presentazioni complete",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/22/145"
+    },
+    {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti",
+     "data": "2026-10-26",
+     "link": "https://t.me/c/4330041943/22/147"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "23/10 · Corti federali e statali, forum shopping, Swift ed Erie",
+     "data": "2026-10-23",
+     "link": "https://t.me/c/4330041943/22/133"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "23/10 · Corti federali e statali, forum shopping, Swift ed Erie",
+     "data": "2026-10-23",
+     "link": "https://t.me/c/4330041943/22/143"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "22/10 · Marbury, judicial review e le reazioni del Congresso",
+     "data": "2026-10-22",
+     "link": "https://t.me/c/4330041943/22/132"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "22/10 · Marbury, judicial review e le reazioni del Congresso",
+     "data": "2026-10-22",
+     "link": "https://t.me/c/4330041943/22/142"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "16/10 · La common law statunitense - Costituzione, corti federali, Plessy, Brown e Marbury",
+     "data": "2026-10-16",
+     "link": "https://t.me/c/4330041943/22/131"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "16/10 · La common law statunitense - Costituzione, corti federali, Plessy, Brown e Marbury",
+     "data": "2026-10-16",
+     "link": "https://t.me/c/4330041943/22/141"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "15/10 · Tort law - da Mullen v Barr a Donoghue v Stevenson",
+     "data": "2026-10-15",
+     "link": "https://t.me/c/4330041943/22/130"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "15/10 · Tort law - da Mullen v Barr a Donoghue v Stevenson",
+     "data": "2026-10-15",
+     "link": "https://t.me/c/4330041943/22/140"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "09/10 · Judicature Acts, Supreme Court e regola del precedente",
+     "data": "2026-10-09",
+     "link": "https://t.me/c/4330041943/22/129"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "09/10 · Judicature Acts, Supreme Court e regola del precedente",
+     "data": "2026-10-09",
+     "link": "https://t.me/c/4330041943/22/139"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "08/10 · Equity, trust e prime riforme dell'Ottocento",
+     "data": "2026-10-08",
+     "link": "https://t.me/c/4330041943/22/128"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "08/10 · Equity, trust e prime riforme dell'Ottocento",
+     "data": "2026-10-08",
+     "link": "https://t.me/c/4330041943/22/138"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "02/10 · Dal formalismo all'equity - modelli processuali e processo di common law",
+     "data": "2026-10-02",
+     "link": "https://t.me/c/4330041943/22/127"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "02/10 · Dal formalismo all'equity - modelli processuali e processo di common law",
+     "data": "2026-10-02",
+     "link": "https://t.me/c/4330041943/22/137"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "01/10 · Le origini della Common Law e il sistema dei writ",
+     "data": "2026-10-01",
+     "link": "https://t.me/c/4330041943/22/126"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "01/10 · Le origini della Common Law e il sistema dei writ",
+     "data": "2026-10-01",
+     "link": "https://t.me/c/4330041943/22/136"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "25/09 · Nascita e scopi della comparazione",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/22/125"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "25/09 · Nascita e scopi della comparazione",
+     "data": "2026-09-25",
+     "link": "https://t.me/c/4330041943/22/135"
+    },
+    {
+     "tipo": "trascrizione",
+     "titolo": "24/09 · Introduzione al corso e funzioni del diritto comparato",
+     "data": "2026-09-24",
+     "link": "https://t.me/c/4330041943/22/124"
+    },
+    {
+     "tipo": "riassunto",
+     "titolo": "24/09 · Introduzione al corso e funzioni del diritto comparato",
+     "data": "2026-09-24",
+     "link": "https://t.me/c/4330041943/22/134"
+    }
+   ]
   }
  ]
 }
