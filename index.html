@@ -143,7 +143,7 @@ function disegna() {
 
   $("titolo").textContent = tipo(t).nome;
   const file = materia.file.filter(f => f.tipo === t);
-  file.forEach(f => aggiungi(voce({ emoji: tipo(t).emoji, titolo: f.titolo, sotto: giorno(f.data),
+  file.forEach(f => aggiungi(voce({ emoji: tipo(t).emoji, titolo: f.titolo.replace(/^\d\d\/\d\d · /, ""), sotto: giorno(f.data),
                                     freccia: false, azione: () => apri(f.link) })));
   if (!file.length) elenco.innerHTML = `<div class="vuoto">Ancora nessun file</div>`;
 }
