@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giurisprudenza</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root {
+    --sfondo: var(--tg-theme-secondary-bg-color, #f1f2f6);
+    --carta: var(--tg-theme-section-bg-color, var(--tg-theme-bg-color, #ffffff));
+    --testo: var(--tg-theme-text-color, #16181d);
+    --tenue: var(--tg-theme-hint-color, #7d8592);
+    --accento: var(--tg-theme-button-color, #2f6fde);
+    --su-accento: var(--tg-theme-button-text-color, #ffffff);
+    --linea: color-mix(in srgb, var(--tenue) 22%, transparent);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-tg]) { --sfondo: #101215; --carta: #1b1e23; --testo: #eceef2; --tenue: #8b93a1; --accento: #5b93f0; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sfondo); color: var(--testo);
+         font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 12px 16px 32px; }
+  header { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+  header h1 { font-size: 20px; margin: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .indietro { border: 0; background: none; color: var(--accento); font-size: 16px; padding: 8px 4px; cursor: pointer; }
+  .percorso { color: var(--tenue); font-size: 13px; margin: 0 0 10px; min-height: 18px; }
+  input[type=search] { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--linea);
+                       background: var(--carta); color: var(--testo); font-size: 16px; margin-bottom: 12px; }
+  .elenco { background: var(--carta); border-radius: 12px; overflow: hidden; }
+  .voce { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 13px 14px;
+          border: 0; border-top: 1px solid var(--linea); background: none; color: inherit; font: inherit; cursor: pointer; }
+  .voce:first-child { border-top: 0; }
+  .voce:active { background: var(--linea); }
+  .emoji { font-size: 22px; width: 28px; text-align: center; flex: none; }
+  .corpo { flex: 1; min-width: 0; }
+  .titolo { overflow: hidden; text-overflow: ellipsis; }
+  .sotto { color: var(--tenue); font-size: 13px; }
+  .conta { color: var(--tenue); font-size: 14px; flex: none; }
+  .freccia { color: var(--tenue); flex: none; }
+  .vuoto { padding: 18px 14px; color: var(--tenue); text-align: center; }
+  .piede { color: var(--tenue); font-size: 12px; text-align: center; margin-top: 16px; }
+  .sezione-link { display: block; text-align: center; margin-top: 12px; color: var(--accento); text-decoration: none; font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <button class="indietro" id="indietro" hidden>‹ Indietro</button>
+    <h1 id="titolo">Giurisprudenza</h1>
+  </header>
+  <p class="percorso" id="percorso"></p>
+  <input type="search" id="cerca" placeholder="Cerca un file in tutte le materie" autocomplete="off">
+  <div class="elenco" id="elenco"><div class="vuoto">Carico…</div></div>
+  <div id="extra"></div>
+  <p class="piede" id="piede"></p>
+</main>
+<script>
+const tg = window.Telegram && Telegram.WebApp;
+if (tg && tg.initData !== undefined) { document.documentElement.dataset.tg = ""; tg.ready(); tg.expand(); }
+
+let dati = null;
+const pila = [];                       // dove sono: [] anni, [anno], [anno, materia], [anno, materia, tipo]
+const $ = id => document.getElementById(id);
+
+function apri(link) {
+  if (tg && tg.openTelegramLink) { try { tg.openTelegramLink(link); return; } catch (e) {} }
+  location.href = link;
+}
+
+function voce({ emoji = "", titolo, sotto = "", conta = "", freccia = true, azione }) {
+  const b = document.createElement("button");
+  b.className = "voce";
+  b.innerHTML = `<span class="emoji">${emoji}</span><span class="corpo"><div class="titolo"></div>` +
+    (sotto ? `<div class="sotto"></div>` : "") + `</span>` +
+    (conta !== "" ? `<span class="conta">${conta}</span>` : "") + (freccia ? `<span class="freccia">›</span>` : "");
+  b.querySelector(".titolo").textContent = titolo;
+  if (sotto) b.querySelector(".sotto").textContent = sotto;
+  b.onclick = azione;
+  return b;
+}
+
+const giorno = d => d ? d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4) : "";
+const tipo = t => dati.tipi.find(x => x.tipo === t) || { emoji: "📄", nome: t };
+
+function vai(...passo) { pila.push(...passo); disegna(); }
+function su() { pila.pop(); disegna(); }
+
+function disegna() {
+  const elenco = $("elenco"), extra = $("extra");
+  elenco.innerHTML = ""; extra.innerHTML = "";
+  const cerca = $("cerca").value.trim().toLowerCase();
+  const [anno, nome, t] = pila;
+  $("indietro").hidden = pila.length === 0 || !!cerca;
+  if (tg && tg.BackButton) pila.length && !cerca ? tg.BackButton.show() : tg.BackButton.hide();
+  $("percorso").textContent = cerca ? "Risultati della ricerca" : pila.map(p => p in tipiPerNome ? tipiPerNome[p] : p).join(" › ");
+  const aggiungi = el => elenco.appendChild(el);
+
+  if (cerca) {
+    $("titolo").textContent = "Cerca";
+    const trovati = [];
+    for (const m of dati.materie) for (const f of m.file)
+      if ((f.titolo + " " + m.nome + " " + tipo(f.tipo).nome).toLowerCase().includes(cerca)) trovati.push([m, f]);
+    trovati.slice(0, 100).forEach(([m, f]) => aggiungi(voce({ emoji: tipo(f.tipo).emoji, titolo: f.titolo,
+      sotto: `${m.nome} · ${tipo(f.tipo).nome}`, freccia: false, azione: () => apri(f.link) })));
+    if (!trovati.length) elenco.innerHTML = `<div class="vuoto">Nessun file trovato</div>`;
+    return;
+  }
+
+  if (!anno) {
+    $("titolo").textContent = "Giurisprudenza";
+    const anni = [...new Set(dati.materie.map(m => m.anno))];
+    anni.forEach(a => {
+      const ms = dati.materie.filter(m => m.anno === a);
+      const n = ms.reduce((s, m) => s + m.file.length, 0);
+      aggiungi(voce({ emoji: "🎓", titolo: a, sotto: `${ms.length} materie`, conta: n || "", azione: () => vai(a) }));
+    });
+    return;
+  }
+
+  if (!nome) {
+    $("titolo").textContent = anno;
+    dati.materie.filter(m => m.anno === anno).forEach(m =>
+      aggiungi(voce({ emoji: "📘", titolo: m.nome, sotto: m.file.length ? `${m.file.length} file` : "Ancora vuota",
+                      azione: () => vai(m.nome) })));
+    return;
+  }
+
+  const materia = dati.materie.find(m => m.nome === nome);
+  if (!t) {
+    $("titolo").textContent = nome;
+    dati.tipi.forEach(x => {
+      const n = materia.file.filter(f => f.tipo === x.tipo).length;
+      aggiungi(voce({ emoji: x.emoji, titolo: x.nome, conta: n, azione: () => vai(x.tipo) }));
+    });
+    const a = document.createElement("a");
+    a.className = "sezione-link"; a.href = materia.link; a.textContent = "Apri la sezione della materia nel gruppo";
+    a.onclick = e => { e.preventDefault(); apri(materia.link); };
+    extra.appendChild(a);
+    return;
+  }
+
+  $("titolo").textContent = tipo(t).nome;
+  const file = materia.file.filter(f => f.tipo === t);
+  file.forEach(f => aggiungi(voce({ emoji: tipo(t).emoji, titolo: f.titolo, sotto: giorno(f.data),
+                                    freccia: false, azione: () => apri(f.link) })));
+  if (!file.length) elenco.innerHTML = `<div class="vuoto">Ancora nessun file</div>`;
+}
+
+let tipiPerNome = {};
+$("indietro").onclick = su;
+if (tg && tg.BackButton) tg.BackButton.onClick(su);
+$("cerca").oninput = disegna;
+
+fetch("dati.json?" + Date.now()).then(r => r.json()).then(d => {
+  dati = d;
+  tipiPerNome = Object.fromEntries(d.tipi.map(x => [x.tipo, x.nome]));
+  $("piede").textContent = "Aggiornato il " + d.aggiornato + " · i file si aprono nel gruppo Telegram";
+  disegna();
+}).catch(() => { $("elenco").innerHTML = `<div class="vuoto">Elenco non disponibile, riprova tra poco</div>`; });
+</script>
+</body>
+</html>

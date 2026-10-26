@@ -1,0 +1,85 @@
+{
+ "aggiornato": "26/10/2026 23:19",
+ "tipi": [
+  {
+   "tipo": "trascrizione",
+   "emoji": "📝",
+   "nome": "Trascrizioni corrette"
+  },
+  {
+   "tipo": "riassunto",
+   "emoji": "📑",
+   "nome": "Riassunti"
+  },
+  {
+   "tipo": "cumulativo",
+   "emoji": "📚",
+   "nome": "Riassunto completo"
+  },
+  {
+   "tipo": "presentazioni",
+   "emoji": "📊",
+   "nome": "Presentazioni"
+  },
+  {
+   "tipo": "slide",
+   "emoji": "🖥",
+   "nome": "Slide"
+  },
+  {
+   "tipo": "audio",
+   "emoji": "🎧",
+   "nome": "Audio"
+  }
+ ],
+ "materie": [
+  {
+   "nome": "Diritto privato",
+   "anno": "I anno",
+   "link": "https://t.me/c/4330041943/4",
+   "file": []
+  },
+  {
+   "nome": "Filosofia del diritto",
+   "anno": "I anno",
+   "link": "https://t.me/c/4330041943/9",
+   "file": []
+  },
+  {
+   "nome": "Storia del diritto medievale e moderno",
+   "anno": "I anno",
+   "link": "https://t.me/c/4330041943/11",
+   "file": []
+  },
+  {
+   "nome": "Diritto commerciale",
+   "anno": "II anno",
+   "link": "https://t.me/c/4330041943/13",
+   "file": []
+  },
+  {
+   "nome": "Diritto del lavoro",
+   "anno": "II anno",
+   "link": "https://t.me/c/4330041943/16",
+   "file": []
+  },
+  {
+   "nome": "Fondamenti dell'argomentazione normativa",
+   "anno": "II anno",
+   "link": "https://t.me/c/4330041943/18",
+   "file": []
+  },
+  {
+   "nome": "Inglese",
+   "anno": "II anno",
+   "link": "https://t.me/c/4330041943/20",
+   "file": []
+  },
+  {
+   "nome": "Sistemi giuridici comparati",
+   "anno": "II anno",
+   "link": "https://t.me/c/4330041943/22",
+   "file": []
+  }
+ ]
+}
