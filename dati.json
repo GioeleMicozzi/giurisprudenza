@@ -1,5 +1,5 @@
 {
- "aggiornato": "29/10/2026 08:37",
+ "aggiornato": "29/10/2026 08:53",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -402,6 +402,12 @@
      "link": "https://t.me/c/4330041943/18/164"
     },
     {
+     "tipo": "audio",
+     "titolo": "Audio dei video, tutti uniti, aggiornato con il 28/10",
+     "data": "2026-10-29",
+     "link": "https://t.me/c/4330041943/18/165"
+    },
+    {
      "tipo": "trascrizione",
      "titolo": "28/10 · Il principio di rilevanza in pratica",
      "data": "2026-10-28",
@@ -418,12 +424,6 @@
      "titolo": "Slide NotebookLM complete",
      "data": "2026-10-26",
      "link": "https://t.me/c/4330041943/18/100"
-    },
-    {
-     "tipo": "audio",
-     "titolo": "Audio dei video, tutti uniti",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/18/101"
     },
     {
      "tipo": "trascrizione",
