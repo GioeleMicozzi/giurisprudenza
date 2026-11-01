@@ -1,5 +1,5 @@
 {
- "aggiornato": "01/11/2026 22:18",
+ "aggiornato": "01/11/2026 22:22",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -710,6 +710,12 @@
    "link": "https://t.me/c/4330041943/22",
    "file": [
     {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo, aggiornato con il 30/10",
+     "data": "2026-11-01",
+     "link": "https://t.me/c/4330041943/22/178"
+    },
+    {
      "tipo": "slide",
      "titolo": "Slide NotebookLM complete, aggiornato con il 16/10",
      "data": "2026-10-30",
@@ -738,12 +744,6 @@
      "titolo": "29/10 · La civil law - dal Corpus iuris alle codificazioni",
      "data": "2026-10-29",
      "link": "https://t.me/c/4330041943/22/175"
-    },
-    {
-     "tipo": "cumulativo",
-     "titolo": "Riassunto completo",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/22/144"
     },
     {
      "tipo": "audio",
