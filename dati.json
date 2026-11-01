@@ -1,5 +1,5 @@
 {
- "aggiornato": "01/11/2026 22:22",
+ "aggiornato": "01/11/2026 22:27",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -107,6 +107,12 @@
    "link": "https://t.me/c/4330041943/16",
    "file": [
     {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete, aggiornato con il 29/10",
+     "data": "2026-11-01",
+     "link": "https://t.me/c/4330041943/16/179"
+    },
+    {
      "tipo": "cumulativo",
      "titolo": "Riassunto completo, aggiornato con il 29/10",
      "data": "2026-10-30",
@@ -153,12 +159,6 @@
      "titolo": "27/10 · Seminario - la salute e sicurezza sul lavoro nel diritto francese",
      "data": "2026-10-27",
      "link": "https://t.me/c/4330041943/16/151"
-    },
-    {
-     "tipo": "slide",
-     "titolo": "Slide NotebookLM complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/16/76"
     },
     {
      "tipo": "trascrizione",
