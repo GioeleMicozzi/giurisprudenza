@@ -1,5 +1,5 @@
 {
- "aggiornato": "02/11/2026 15:35",
+ "aggiornato": "02/11/2026 15:51",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -52,16 +52,16 @@
    "link": "https://t.me/c/4330041943/13",
    "file": [
     {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete",
+     "data": "2026-11-02",
+     "link": "https://t.me/c/4330041943/13/199"
+    },
+    {
      "tipo": "cumulativo",
      "titolo": "Riassunto completo, aggiornato con il 30/09",
      "data": "2026-11-02",
      "link": "https://t.me/c/4330041943/13/189"
-    },
-    {
-     "tipo": "slide",
-     "titolo": "Slide NotebookLM complete",
-     "data": "2026-10-26",
-     "link": "https://t.me/c/4330041943/13/31"
     },
     {
      "tipo": "audio",
