@@ -1,5 +1,5 @@
 {
- "aggiornato": "06/11/2026 09:44",
+ "aggiornato": "08/11/2026 13:16",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -782,6 +782,12 @@
    "link": "https://t.me/c/4330041943/22",
    "file": [
     {
+     "tipo": "slide",
+     "titolo": "Slide NotebookLM complete, aggiornato con il 22/10",
+     "data": "2026-11-08",
+     "link": "https://t.me/c/4330041943/22/196"
+    },
+    {
      "tipo": "cumulativo",
      "titolo": "Riassunto completo, aggiornato con il 05/11",
      "data": "2026-11-06",
@@ -798,12 +804,6 @@
      "titolo": "05/11 · Law and Music - diritto e musica",
      "data": "2026-11-05",
      "link": "https://t.me/c/4330041943/22/217"
-    },
-    {
-     "tipo": "slide",
-     "titolo": "Slide NotebookLM complete, aggiornato con il 23/10",
-     "data": "2026-11-02",
-     "link": "https://t.me/c/4330041943/22/196"
     },
     {
      "tipo": "audio",
