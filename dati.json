@@ -1,5 +1,5 @@
 {
- "aggiornato": "09/11/2026 10:10",
+ "aggiornato": "09/11/2026 10:13",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -444,6 +444,12 @@
    "link": "https://t.me/c/4330041943/18",
    "file": [
     {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo, aggiornato con il 06/11",
+     "data": "2026-11-09",
+     "link": "https://t.me/c/4330041943/18/164"
+    },
+    {
      "tipo": "riassunto",
      "titolo": "06/11 · Seminario di Serena Tomasi - retorica e argomentazione in MacCormick",
      "data": "2026-11-06",
@@ -460,12 +466,6 @@
      "titolo": "Slide NotebookLM complete, aggiornato con il 21/10",
      "data": "2026-11-04",
      "link": "https://t.me/c/4330041943/18/181"
-    },
-    {
-     "tipo": "cumulativo",
-     "titolo": "Riassunto completo, aggiornato con il 04/11",
-     "data": "2026-11-04",
-     "link": "https://t.me/c/4330041943/18/164"
     },
     {
      "tipo": "trascrizione",
