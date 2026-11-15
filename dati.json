@@ -1,5 +1,5 @@
 {
- "aggiornato": "15/11/2026 19:46",
+ "aggiornato": "15/11/2026 19:48",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -824,6 +824,12 @@
    "link": "https://t.me/c/4330041943/22",
    "file": [
     {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo, aggiornato con il 12/11",
+     "data": "2026-11-15",
+     "link": "https://t.me/c/4330041943/22/188"
+    },
+    {
      "tipo": "slide",
      "titolo": "Slide NotebookLM complete, aggiornato con il 29/10",
      "data": "2026-11-13",
@@ -840,12 +846,6 @@
      "titolo": "12/11 · Il parziale e il codice civile tedesco (BGB)",
      "data": "2026-11-12",
      "link": "https://t.me/c/4330041943/22/239"
-    },
-    {
-     "tipo": "cumulativo",
-     "titolo": "Riassunto completo, aggiornato con il 06/11",
-     "data": "2026-11-09",
-     "link": "https://t.me/c/4330041943/22/188"
     },
     {
      "tipo": "audio",
