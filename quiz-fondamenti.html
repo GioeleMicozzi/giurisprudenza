@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Quiz Fondamenti dell'argomentazione normativa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1d1f24; --muted:#636873; --line:#e2ded5;
+  --accent:#2f5d8a; --accent-ink:#ffffff; --soft:#e9eff6;
+  --ok:#1f7a4a; --ok-bg:#e3f3ea; --ko:#b23a32; --ko-bg:#f9e4e2;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171b; --card:#1f2228; --ink:#eceef2; --muted:#a2a8b3; --line:#30343c;
+    --accent:#7fb0e0; --accent-ink:#0f1720; --soft:#22303f;
+    --ok:#6fd19a; --ok-bg:#183527; --ko:#f08a80; --ko-bg:#3d1f1d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171b; --card:#1f2228; --ink:#eceef2; --muted:#a2a8b3; --line:#30343c;
+  --accent:#7fb0e0; --accent-ink:#0f1720; --soft:#22303f;
+  --ok:#6fd19a; --ok-bg:#183527; --ko:#f08a80; --ko-bg:#3d1f1d;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+h1{font-size:1.45rem;margin:4px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.modi{display:grid;gap:10px;margin-bottom:22px}
+.modo{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font:inherit;cursor:pointer}
+.modo:hover{border-color:var(--accent)}
+.modo b{display:block;font-size:1.02rem}
+.modo span{color:var(--muted);font-size:.9rem}
+.modo.principale{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.modo.principale span{color:inherit;opacity:.85}
+.modo[disabled]{opacity:.5;cursor:default}
+h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 10px}
+.temi{display:grid;gap:6px}
+.tema{display:flex;justify-content:space-between;gap:10px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:inherit;text-align:left;padding:10px 2px;cursor:pointer}
+.tema:hover{color:var(--accent)}
+.tema small{color:var(--muted);white-space:nowrap}
+.barra{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 16px}
+.barra i{display:block;height:100%;background:var(--accent);transition:width .2s}
+.testa{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:.88rem}
+.etichetta{display:inline-block;background:var(--soft);color:var(--accent);border-radius:99px;padding:2px 10px;font-size:.8rem;font-weight:600;margin-bottom:10px}
+.domanda{font-size:1.15rem;font-weight:600;margin:0 0 16px;line-height:1.4}
+.opzioni{display:grid;gap:9px}
+.opz{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;cursor:pointer;line-height:1.4}
+.opz:hover:not([disabled]){border-color:var(--accent)}
+.opz .l{flex:none;width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:-1px}
+.opz[disabled]{cursor:default}
+.opz.giusta{border-color:var(--ok);background:var(--ok-bg)}
+.opz.giusta .l{background:var(--ok);color:var(--card)}
+.opz.sbagliata{border-color:var(--ko);background:var(--ko-bg)}
+.opz.sbagliata .l{background:var(--ko);color:var(--card)}
+.esito{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.95rem}
+.esito.ok{background:var(--ok-bg);color:var(--ink);border-left:4px solid var(--ok)}
+.esito.ko{background:var(--ko-bg);color:var(--ink);border-left:4px solid var(--ko)}
+.esito b{display:block;margin-bottom:2px}
+.azioni{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:16px;flex-wrap:wrap}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.btn.sec{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.punti{font-size:2.6rem;font-weight:700;margin:4px 0;letter-spacing:-.02em}
+.voto{color:var(--muted);margin:0 0 14px}
+.errore{border-top:1px solid var(--line);padding:12px 0}
+.errore p{margin:0 0 4px}
+.errore .tua{color:var(--ko)}
+.errore .ok{color:var(--ok);font-weight:600}
+.errore .sp{color:var(--muted);font-size:.92rem}
+.nota{color:var(--muted);font-size:.85rem;margin-top:22px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const DATI = {"materia": "Fondamenti dell'argomentazione normativa", "titolo": "Quiz di ripasso per il test", "domande": [{"tema": "L'eguaglianza: il nome di un problema", "settimana": "2026-11-20", "domanda": "L'isonomia della tradizione greco-classica è:", "giusta": "l'eguaglianza davanti alla legge, solo fra cittadini", "sbagliate": ["l'eguaglianza di tutti gli uomini davanti a Dio", "l'eguaglianza economica fra tutti gli abitanti della polis"], "spiegazione": "Dentro il cerchio della cittadinanza le differenze non rilevano; fuori restano schiavi, donne e barbari."}, {"tema": "L'eguaglianza: il nome di un problema", "settimana": "2026-11-20", "domanda": "Le prime tre tradizioni dell'eguaglianza (greca, ebraico-cristiana, giusnaturalista) danno un'eguaglianza:", "giusta": "al condizionale: sarebbero eguali davanti a Dio o nello stato di natura", "sbagliate": ["all'indicativo: gli uomini sono, nella società, liberi ed eguali", "distributivo: conta l'eguaglianza nella ricchezza"], "spiegazione": "Il passaggio all'indicativo arriva con la Rivoluzione francese."}, {"tema": "L'eguaglianza: il nome di un problema", "settimana": "2026-11-20", "domanda": "Nell'art. 3 Cost. il comma 2 (rimuovere gli ostacoli economici e sociali) esprime:", "giusta": "l'eguaglianza sostanziale, la risposta alla domanda «eguaglianza in che cosa?»", "sbagliate": ["l'eguaglianza formale davanti alla legge", "l'eguaglianza fra i soli cittadini"], "spiegazione": "Il comma 1 è l'eguaglianza formale (fra chi), il comma 2 quella sostanziale (in che cosa)."}, {"tema": "Dicotomie e distinzioni per gradi", "settimana": "2026-11-20", "domanda": "Secondo Melandri, applicare una distinzione per gradi a una realtà che procede per salti è:", "giusta": "sofistico", "sbagliate": ["rozzo", "sempre corretto, perché la distinzione polare è più forte"], "spiegazione": "Il contrario (distinzione per salti su realtà per gradi) è rozzo; nessuna delle due è più forte."}, {"tema": "Dicotomie e distinzioni per gradi", "settimana": "2026-11-20", "domanda": "Quale istituto mostra che per il diritto la capacità ha gradazioni?", "giusta": "l'amministratore di sostegno (l. 6/2004)", "sbagliate": ["l'interdizione per infermità di mente", "l'emancipazione del minore"], "spiegazione": "Con l'interdizione o c'è la capacità o non c'è; l'amministratore di sostegno introduce i gradi."}, {"tema": "Dicotomie e distinzioni per gradi", "settimana": "2026-11-20", "domanda": "Validità ed efficacia: quale affermazione è corretta?", "giusta": "la validità è dicotomica, l'efficacia è per gradi", "sbagliate": ["sono entrambe dicotomiche", "la validità è per gradi, l'efficacia dicotomica"], "spiegazione": "Una norma esiste o no nell'ordinamento; un divieto osservato una volta su due è efficace a metà."}, {"tema": "Dicotomie e distinzioni per gradi", "settimana": "2026-11-20", "domanda": "Il diritto rende dicotomico ciò che per la biologia è polare nel caso:", "giusta": "della morte: vivo o morto", "sbagliate": ["della proprietà, con Rodotà", "del dolo eventuale"], "spiegazione": "Senza il salto chi espianta organi rischierebbe l'omicidio."}, {"tema": "L'autonomia dell'individuo", "settimana": "2026-11-20", "domanda": "Per Raz una scelta è autonoma se ci sono:", "giusta": "capacità, assenza di coercizione e un ventaglio di opzioni", "sbagliate": ["capacità e consenso scritto", "solo l'assenza di coercizione"], "spiegazione": "Delle tre conta soprattutto il ventaglio di opzioni (il vassoio di sole arance è una costrizione architettonica)."}, {"tema": "L'autonomia dell'individuo", "settimana": "2026-11-20", "domanda": "Gli «encompassing groups» (Margalit e Raz) sono:", "giusta": "le formazioni intermedie la cui identità gli individui chiedono che conti", "sbagliate": ["i gruppi esclusi per legge dalla cittadinanza", "le maggioranze che governano lo Stato sovrano"], "spiegazione": "Gli individui stanno davanti allo Stato anche come membri di un gruppo: il gruppo diventa un attore."}, {"tema": "La complessificazione dell'eguaglianza", "settimana": "2026-11-20", "domanda": "Holmes e Sunstein (The Cost of Rights) mostrano che:", "giusta": "anche i diritti civili costano, non solo quelli sociali", "sbagliate": ["i diritti sociali non costano", "i diritti civili sono libertà negative senza costi"], "spiegazione": "Il voto richiede seggi e scrutatori: la differenza resta, ma non è più netta."}, {"tema": "La complessificazione dell'eguaglianza", "settimana": "2026-11-20", "domanda": "Per Waldron l'eguaglianza di base:", "giusta": "è descrittiva: gli uomini sono eguali in un senso fondamentale", "sbagliate": ["è prescrittiva: dice come trattare gli uomini", "è sempre il punto di arrivo delle pratiche"], "spiegazione": "L'eguaglianza normativa è quella prescrittiva; di solito si argomenta dalla base alla norma."}, {"tema": "La complessificazione dell'eguaglianza", "settimana": "2026-11-20", "domanda": "Una qualità «di range» è una qualità che:", "giusta": "c'è o non c'è, senza gradi (essere cittadino)", "sbagliate": ["ammette il più e il meno (intelligenza, forza)", "dipende dalla ricchezza o dal reddito"], "spiegazione": "Le qualità scalari ammettono gradi; quella di range rende irrilevanti le differenze scalari."}, {"tema": "Le tre fasi del discorso normativo", "settimana": "2026-11-20", "domanda": "Le tre fasi del discorso normativo sono, in ordine logico:", "giusta": "funzionalità, istituzioni, critica", "sbagliate": ["istituzioni, funzionalità, critica", "critica, istituzioni, funzionalità"], "spiegazione": "La successione è logica, non cronologica, con le istituzioni in mezzo."}, {"tema": "Le tre fasi del discorso normativo", "settimana": "2026-11-20", "domanda": "La regola costitutiva, a differenza di quella regolativa:", "giusta": "è condizione di esistenza dell'oggetto (il pedone degli scacchi)", "sbagliate": ["presuppone un oggetto che esiste già (il pedone della strada)", "limita soltanto la libertà"], "spiegazione": "La regola costitutiva rende possibili cose altrimenti impossibili e approfondisce la libertà."}, {"tema": "Le tre fasi del discorso normativo", "settimana": "2026-11-20", "domanda": "Il bad man di Holmes, che mette in conto la multa per parcheggiare nel posto dei disabili, è un esempio di:", "giusta": "attacco dal basso: uso tecnico dell'istituzione", "sbagliate": ["attacco dall'alto: critica per principi", "applicazione di una regola costitutiva"], "spiegazione": "La sanzione diventa un prezzo: si esce dalle credenze condivise per fini individuali."}, {"tema": "Le tre fasi del discorso normativo", "settimana": "2026-11-20", "domanda": "La riforma del diritto di famiglia del 1975 è un esempio di critica che porta a:", "giusta": "riforma, in nome di un principio immanente", "sbagliate": ["distruzione dell'istituzione, come per la schiavitù", "nessun cambiamento, per l'inerzia normativa"], "spiegazione": "La schiavitù invece è stata distrutta, non riformata."}, {"tema": "Le tre fasi del discorso normativo", "settimana": "2026-11-20", "domanda": "Il «sovversivismo dell'immanenza» (Walzer) è la critica che:", "giusta": "colpisce l'istituzione in nome dei suoi stessi valori", "sbagliate": ["usa principi religiosi", "usa il diritto naturale"], "spiegazione": "È la critica più temuta; la teoria preferisce i principi immanenti perché meno costosi filosoficamente."}, {"tema": "Il principio di rilevanza", "settimana": "2026-11-20", "domanda": "Per Dworkin i diritti sono «trumps» perché:", "giusta": "prevalgono sulle considerazioni di utilità", "sbagliate": ["si possono scambiare con altri diritti", "valgono solo se conclusivi"], "spiegazione": "Esprimono un'esigenza di giustizia e stanno con le posizioni deontologiche."}, {"tema": "Il principio di rilevanza", "settimana": "2026-11-20", "domanda": "L'argomentazione normativa poggia sul principio di:", "giusta": "rilevanza", "sbagliate": ["conclusività", "maggioranza"], "spiegazione": "La conclusività vale per il confronto tecnico fra policies; un argomento che si pensa conclusivo esce dal discorso normativo."}, {"tema": "Il principio di rilevanza", "settimana": "2026-11-20", "domanda": "Nel caso Ilva il d.l. 92/2015 è stato giudicato:", "giusta": "illegittimo: prevalgono salute e ambiente, nessun diritto può diventare «tiranno»", "sbagliate": ["legittimo, perché la produzione prevale sempre", "legittimo, perché era un decreto d'urgenza"], "spiegazione": "I diritti si integrano: nessuno può prevalere in modo assoluto."}, {"tema": "Che cos'è un'istituzione", "settimana": "2026-11-20", "domanda": "Per Searle il denaro è:", "giusta": "un fatto istituzionale", "sbagliate": ["un fatto bruto", "una regola tecnica"], "spiegazione": "Esiste solo grazie a regole e credenze condivise; una quercia è un fatto bruto."}, {"tema": "Che cos'è un'istituzione", "settimana": "2026-11-20", "domanda": "Il riferimento normativo citato per l'uso tecnico del diritto da parte di chi «mente» con le istituzioni è:", "giusta": "la frode alla legge (art. 1344 c.c.)", "sbagliate": ["la responsabilità civile (art. 2043 c.c.)", "l'analogia (art. 12 preleggi)"], "spiegazione": "Ciò che non può servire a mentire non serve a dire il vero, e il diritto lo sa."}, {"tema": "Gli argomenti normativi", "settimana": "2026-11-20", "domanda": "La «checkerboard strategy» di Dworkin sulla pena di morte è:", "giusta": "un controesempio normativo: inaccettabile per tutti", "sbagliate": ["un compromesso accettato dalle corti americane", "un argomento utilitarista sulla deterrenza"], "spiegazione": "Davanti a soluzioni estreme l'argomento si riorienta: struttura riflessiva."}, {"tema": "Gli argomenti normativi", "settimana": "2026-11-20", "domanda": "Per Bernard Williams la vergogna è un'emozione:", "giusta": "rossa: si arrossisce davanti a un altro", "sbagliate": ["bianca: la si prova anche da soli", "atomistica, come la paura"], "spiegazione": "Hobbes sceglie la paura (bianca); Vico il pudore (rossa), da cui nascono le istituzioni."}, {"tema": "I valori condivisi", "settimana": "2026-11-20", "domanda": "L'argomento del Cardinal de Retz dice che:", "giusta": "è più facile scusare chi agisce contro il decoro della professione che chi ne parla", "sbagliate": ["le azioni contano più delle parole", "i valori condivisi non cambiano mai"], "spiegazione": "Chi mette esplicitamente in discussione una norma morale la indebolisce."}, {"tema": "I valori condivisi", "settimana": "2026-11-20", "domanda": "Per Raz «il vero significato di una pratica sociale è»:", "giusta": "il suo significato sociale, il ruolo che gioca ora", "sbagliate": ["il significato originario nella cultura d'origine", "quello voluto da chi la pratica"], "spiegazione": "Anche ammesso il significato originario, in Occidente la pratica è percepita come discriminatoria."}, {"tema": "La razza", "settimana": "2026-11-20", "domanda": "La one drop rule:", "giusta": "trasforma una qualità scalare in una di range", "sbagliate": ["è un esempio di colorblindness", "è una regola dell'affirmative action"], "spiegazione": "Una sola goccia di sangue nero bastava: al servizio della supremazia bianca."}, {"tema": "L'orientamento sessuale", "settimana": "2026-11-20", "domanda": "Contro Devlin, Hart sostiene che:", "giusta": "che l'immoralità indebolisca la società non è un fatto empirico, ma un assunto a priori", "sbagliate": ["la società si disintegra senza valori condivisi", "il disgusto è un buon argomento normativo"], "spiegazione": "Sono prevalse le idee di Hart; negli USA Lawrence v. Texas (2003) chiude la questione."}, {"tema": "L'orientamento sessuale", "settimana": "2026-11-20", "domanda": "Il Don't Ask Don't Tell è un esempio del percorso in cui:", "giusta": "una diseguaglianza normativa crea una diseguaglianza di base", "sbagliate": ["l'eguaglianza di base fonda quella normativa", "la norma resta senza effetti"], "spiegazione": "Rende per legge i gay equivoci, cioè ciò che il pregiudizio pensava che fossero."}, {"tema": "La filosofia del diritto angloamericana dal 1960", "settimana": "2026-11-20", "domanda": "La regola di scelta sotto il velo di ignoranza di Rawls è:", "giusta": "il maximin: il migliore dei casi peggiori", "sbagliate": ["la massima utilità media", "l'eguaglianza assoluta"], "spiegazione": "Fra 8-2 e 8-14 si sceglie 8-14: le diseguaglianze vanno bene se avvantaggiano i più svantaggiati."}, {"tema": "L'eguaglianza alla prova dei casi", "settimana": "2026-11-20", "domanda": "In Regents of the University of California v. Bakke (1978) la Corte Suprema:", "giusta": "quote illegittime, ma la razza può essere un fattore", "sbagliate": ["vietata ogni considerazione della razza", "quote riservate legittime, Bakke respinto"], "spiegazione": "Bakke è ammesso; tutte e due le parti parlano la lingua dell'eguaglianza."}, {"tema": "L'eguaglianza alla prova dei casi", "settimana": "2026-11-20", "domanda": "Per le mutilazioni genitali femminili l'Italia ha scelto:", "giusta": "una norma ad hoc, l'art. 583-bis c.p.", "sbagliate": ["di applicare la norma esistente sulle lesioni gravissime", "di non punirle se culturalmente motivate"], "spiegazione": "È la soluzione legislativa del modello del riconoscimento (come il FGM Act 2003)."}, {"tema": "L'argomentazione filosofica: Thomson e Finnis", "settimana": "2026-11-20", "domanda": "L'esperimento del violinista è di:", "giusta": "Judith Jarvis Thomson, che assume l'embrione persona e difende l'interruzione", "sbagliate": ["John Finnis, che condanna l'interruzione", "Rawls, sotto il velo di ignoranza"], "spiegazione": "Finnis condanna l'aborto anche se l'embrione non fosse persona: la vita è un bene fondamentale."}, {"tema": "Il privilegio: l'altra faccia dell'oppressione", "settimana": "2026-11-20", "domanda": "Per l'art. 14 delle preleggi il diritto eccezionale:", "giusta": "non si applica per analogia", "sbagliate": ["si applica sempre per analogia", "vale solo per i singoli"], "spiegazione": "È l'erede del privilegium romano; l'analogia è all'art. 12."}, {"tema": "Il privilegio: l'altra faccia dell'oppressione", "settimana": "2026-11-20", "domanda": "Corte cost. 131/2022 ha stabilito:", "giusta": "il cognome di entrambi i genitori", "sbagliate": ["il solo cognome paterno", "l'adozione per i single"], "spiegazione": "Il solo cognome paterno era un privilegio a danno della madre e dell'identità del minore."}]};
+const D = DATI.domande.map(d=>({...d,id:d.domanda}));
+const PER_ID = Object.fromEntries(D.map(d=>[d.id,d]));
+const ULTIMA = D.map(d=>d.settimana||"").sort().pop()||"";
+const NUOVE = ULTIMA?D.filter(d=>d.settimana===ULTIMA):[];
+const TEMI = [...new Set(D.map(d=>d.tema))];
+const CHIAVE = "quiz-fondamenti-errori";
+const app = document.getElementById("app");
+let giro = null;
+
+function leggiErrori(){ try{ return JSON.parse(localStorage.getItem(CHIAVE)||"[]"); }catch(e){ return []; } }
+function scriviErrori(a){ try{ localStorage.setItem(CHIAVE, JSON.stringify(a)); }catch(e){} }
+function mescola(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function home(){
+  giro = null;
+  const err = leggiErrori().filter(id=>PER_ID[id]);
+  app.innerHTML = `
+    <h1>${esc(DATI.materia)}</h1>
+    <p class="sub">${esc(DATI.titolo)}: ${D.length} domande a risposta chiusa prese dal riassunto. Dopo ogni risposta vedi quella giusta e il perché.</p>
+    <div class="modi">
+      <button class="modo principale" data-m="sim"><div><b>Simulazione</b><span>30 domande a caso da tutti gli argomenti</span></div><span>→</span></button>
+      ${NUOVE.length && NUOVE.length<D.length?`<button class="modo" data-m="nuove"><div><b>Questa settimana</b><span>le domande aggiunte il ${esc(ULTIMA.split("-").reverse().join("/"))}</span></div><span>${NUOVE.length}</span></button>`:""}
+      <button class="modo" data-m="tutte"><div><b>Tutte le domande</b><span>in ordine casuale</span></div><span>${D.length}</span></button>
+      <button class="modo" data-m="err" ${err.length?"":"disabled"}><div><b>Ripassa gli errori</b><span>${err.length?"le domande sbagliate finora":"ancora nessun errore salvato"}</span></div><span>${err.length||""}</span></button>
+    </div>
+    <h2>Per argomento</h2>
+    <div class="temi">${TEMI.map((t,i)=>`<button class="tema" data-t="${i}"><span>${esc(t)}</span><small>${D.filter(d=>d.tema===t).length} domande</small></button>`).join("")}</div>`;
+  app.querySelectorAll(".modo").forEach(b=>b.onclick=()=>{
+    const m=b.dataset.m;
+    if(m==="sim") inizia(mescola(D).slice(0,30),"Simulazione");
+    if(m==="tutte") inizia(mescola(D),"Tutte le domande");
+    if(m==="nuove") inizia(mescola(NUOVE),"Questa settimana");
+    if(m==="err") inizia(mescola(leggiErrori().filter(id=>PER_ID[id]).map(id=>PER_ID[id])),"Ripasso degli errori");
+  });
+  app.querySelectorAll(".tema").forEach(b=>b.onclick=()=>{ const t=TEMI[+b.dataset.t]; inizia(mescola(D.filter(d=>d.tema===t)),t); });
+  window.scrollTo(0,0);
+}
+
+function inizia(lista,nome){
+  giro = {lista:lista.map(d=>({d,opz:mescola([d.giusta,...d.sbagliate])})), nome, i:0, giuste:0, sbagliate:[]};
+  mostra();
+}
+
+function mostra(){
+  const g=giro, q=g.lista[g.i], n=g.lista.length;
+  app.innerHTML = `
+    <div class="testa"><span>${esc(g.nome)}</span><span>${g.i+1} / ${n} · ${g.giuste} giuste</span></div>
+    <div class="barra"><i style="width:${(g.i)/n*100}%"></i></div>
+    <div class="card">
+      <span class="etichetta">${esc(q.d.tema)}</span>
+      <p class="domanda">${esc(q.d.domanda)}</p>
+      <div class="opzioni">${q.opz.map((o,k)=>`<button class="opz" data-k="${k}"><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("")}</div>
+      <div id="esito"></div>
+    </div>
+    <div class="azioni"><button class="btn sec" id="esci">Torna all'inizio</button><span></span></div>`;
+  app.querySelectorAll(".opz").forEach(b=>b.onclick=()=>rispondi(+b.dataset.k));
+  document.getElementById("esci").onclick=home;
+  window.scrollTo(0,0);
+}
+
+function rispondi(k){
+  const g=giro, q=g.lista[g.i];
+  if(q.data!==undefined) return;
+  q.data=k;
+  const scelta=q.opz[k], ok=scelta===q.d.giusta;
+  const err=new Set(leggiErrori());
+  if(ok){ g.giuste++; err.delete(q.d.id); } else { g.sbagliate.push({q,scelta}); err.add(q.d.id); }
+  scriviErrori([...err]);
+  app.querySelectorAll(".opz").forEach(b=>{
+    b.disabled=true; const o=q.opz[+b.dataset.k];
+    if(o===q.d.giusta) b.classList.add("giusta"); else if(+b.dataset.k===k) b.classList.add("sbagliata");
+  });
+  const sp=q.d.spiegazione?`<div>${esc(q.d.spiegazione)}</div>`:"";
+  document.getElementById("esito").innerHTML = ok
+    ? `<div class="esito ok"><b>Giusto</b>${sp}</div>`
+    : `<div class="esito ko"><b>Sbagliato. Era: ${esc(q.d.giusta)}</b>${sp}</div>`;
+  const ultima=g.i===g.lista.length-1;
+  const az=app.querySelector(".azioni span");
+  az.outerHTML=`<button class="btn" id="avanti">${ultima?"Vedi il risultato":"Avanti →"}</button>`;
+  document.getElementById("avanti").onclick=()=>{ if(ultima) fine(); else { g.i++; mostra(); } };
+  document.getElementById("avanti").focus({preventScroll:true});
+  app.querySelector(".testa span:last-child").textContent=`${g.i+1} / ${g.lista.length} · ${g.giuste} giuste`;
+}
+
+function fine(){
+  const g=giro, n=g.lista.length, pct=Math.round(g.giuste/n*100);
+  const giudizio = pct>=90?"Ottimo.":pct>=75?"Buono: ripassa le poche sbagliate.":pct>=60?"Sufficiente: guarda bene gli errori qui sotto.":"Da ripassare: rileggi gli argomenti delle domande sbagliate.";
+  app.innerHTML = `
+    <div class="card">
+      <div class="testa"><span>${esc(g.nome)}</span><span>finito</span></div>
+      <div class="punti">${g.giuste} / ${n}</div>
+      <p class="voto">${pct}% di risposte giuste. ${giudizio}</p>
+      ${g.sbagliate.length?`<h2>Le domande sbagliate</h2>`+g.sbagliate.map(({q,scelta})=>`
+        <div class="errore"><p><b>${esc(q.d.domanda)}</b></p>
+        <p class="tua">Hai risposto: ${esc(scelta)}</p>
+        <p class="ok">Giusta: ${esc(q.d.giusta)}</p>
+        ${q.d.spiegazione?`<p class="sp">${esc(q.d.spiegazione)}</p>`:""}</div>`).join(""):""}
+    </div>
+    <div class="azioni">
+      <button class="btn sec" id="casa">Torna all'inizio</button>
+      ${g.sbagliate.length?`<button class="btn" id="rifai">Rifai le sbagliate</button>`:`<button class="btn" id="nuova">Nuova simulazione</button>`}
+    </div>`;
+  document.getElementById("casa").onclick=home;
+  const r=document.getElementById("rifai"); if(r) r.onclick=()=>inizia(mescola(g.sbagliate.map(s=>s.q.d)),"Rifai le sbagliate");
+  const nu=document.getElementById("nuova"); if(nu) nu.onclick=()=>inizia(mescola(D).slice(0,30),"Simulazione");
+  window.scrollTo(0,0);
+}
+
+document.addEventListener("keydown",e=>{
+  if(!giro||!app.querySelector(".opz")) return;
+  const k="1234".indexOf(e.key), kl="abcd".indexOf(e.key.toLowerCase());
+  const q=giro.lista[giro.i];
+  if(q && q.data===undefined && (k>=0||kl>=0)){ rispondi(k>=0?k:kl); e.preventDefault(); }
+  else if(e.key==="Enter"){ const a=document.getElementById("avanti"); if(a){ a.click(); e.preventDefault(); } }
+});
+
+home();
+</script>
+</body>
+</html>
