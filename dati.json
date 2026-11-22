@@ -1,5 +1,5 @@
 {
- "aggiornato": "22/11/2026 17:59",
+ "aggiornato": "22/11/2026 18:02",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -52,6 +52,12 @@
    "link": "https://t.me/c/4330041943/13",
    "file": [
     {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo, aggiornato con il 20/11",
+     "data": "2026-11-22",
+     "link": "https://t.me/c/4330041943/13/189"
+    },
+    {
      "tipo": "trascrizione",
      "titolo": "20/11 · Seminario - Proprieta intellettuale, concorrenza e golden power",
      "data": "2026-11-20",
@@ -68,12 +74,6 @@
      "titolo": "Slide NotebookLM complete",
      "data": "2026-11-02",
      "link": "https://t.me/c/4330041943/13/199"
-    },
-    {
-     "tipo": "cumulativo",
-     "titolo": "Riassunto completo, aggiornato con il 30/09",
-     "data": "2026-11-02",
-     "link": "https://t.me/c/4330041943/13/189"
     },
     {
      "tipo": "audio",
