@@ -43,6 +43,9 @@ h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .tema{display:flex;justify-content:space-between;gap:10px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:inherit;text-align:left;padding:10px 2px;cursor:pointer}
 .tema:hover{color:var(--accent)}
 .tema small{color:var(--muted);white-space:nowrap}
+.tema.fatto>span{color:var(--muted)}
+.tema.fatto small{color:var(--ok);font-weight:600}
+.tema .spunta{color:var(--ok);font-weight:700;margin-right:6px}
 .barra{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 16px}
 .barra i{display:block;height:100%;background:var(--accent);transition:width .2s}
 .testa{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:.88rem}
@@ -92,12 +95,17 @@ let giro = null;
 
 function leggiErrori(){ try{ return JSON.parse(localStorage.getItem(CHIAVE)||"[]"); }catch(e){ return []; } }
 function scriviErrori(a){ try{ localStorage.setItem(CHIAVE, JSON.stringify(a)); }catch(e){} }
+const CHIAVE_FATTE = CHIAVE.replace(/-errori$/,"")+"-fatte";
+function leggiFatte(){ try{ return JSON.parse(localStorage.getItem(CHIAVE_FATTE)||'{"viste":[],"temi":{}}'); }catch(e){ return {viste:[],temi:{}}; } }
+function scriviFatte(f){ try{ localStorage.setItem(CHIAVE_FATTE, JSON.stringify(f)); }catch(e){} }
 function mescola(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
 function home(){
   giro = null;
   const err = leggiErrori().filter(id=>PER_ID[id]);
+  const F = leggiFatte(), viste = new Set(F.viste);
+  const temiFatti = TEMI.filter(t=>D.filter(d=>d.tema===t).every(d=>viste.has(d.id))).length;
   app.innerHTML = `
     <h1>${esc(DATI.materia)}</h1>
     <p class="sub">${esc(DATI.titolo)}: ${D.length} domande a risposta chiusa prese dal riassunto. Dopo ogni risposta vedi quella giusta e il perché.</p>
@@ -107,8 +115,10 @@ function home(){
       <button class="modo" data-m="tutte"><div><b>Tutte le domande</b><span>in ordine casuale</span></div><span>${D.length}</span></button>
       <button class="modo" data-m="err" ${err.length?"":"disabled"}><div><b>Ripassa gli errori</b><span>${err.length?"le domande sbagliate finora":"ancora nessun errore salvato"}</span></div><span>${err.length||""}</span></button>
     </div>
-    <h2>Per argomento</h2>
-    <div class="temi">${TEMI.map((t,i)=>`<button class="tema" data-t="${i}"><span>${esc(t)}</span><small>${D.filter(d=>d.tema===t).length} domande</small></button>`).join("")}</div>`;
+    <h2>Per argomento · ${temiFatti} di ${TEMI.length} fatti</h2>
+    <div class="temi">${TEMI.map((t,i)=>{ const dd=D.filter(d=>d.tema===t), fatte=dd.filter(d=>viste.has(d.id)).length, ok=fatte===dd.length, ult=F.temi[t];
+      const info= ok ? `fatto${ult?` · ${ult.giuste}/${ult.n} giuste`:""}` : fatte ? `${fatte}/${dd.length} fatte` : `${dd.length} domande`;
+      return `<button class="tema${ok?" fatto":""}" data-t="${i}"><span>${ok?'<span class="spunta" aria-label="fatto">✓</span>':""}${esc(t)}</span><small>${info}</small></button>`; }).join("")}</div>`;
   app.querySelectorAll(".modo").forEach(b=>b.onclick=()=>{
     const m=b.dataset.m;
     if(m==="sim") inizia(mescola(D).slice(0,30),"Simulazione");
@@ -150,6 +160,7 @@ function rispondi(k){
   const err=new Set(leggiErrori());
   if(ok){ g.giuste++; err.delete(q.d.id); } else { g.sbagliate.push({q,scelta}); err.add(q.d.id); }
   scriviErrori([...err]);
+  const F=leggiFatte(); if(!F.viste.includes(q.d.id)){ F.viste.push(q.d.id); scriviFatte(F); }
   app.querySelectorAll(".opz").forEach(b=>{
     b.disabled=true; const o=q.opz[+b.dataset.k];
     if(o===q.d.giusta) b.classList.add("giusta"); else if(+b.dataset.k===k) b.classList.add("sbagliata");
@@ -168,6 +179,7 @@ function rispondi(k){
 
 function fine(){
   const g=giro, n=g.lista.length, pct=Math.round(g.giuste/n*100);
+  if(TEMI.includes(g.nome)){ const F=leggiFatte(); F.temi[g.nome]={giuste:g.giuste,n,data:new Date().toISOString().slice(0,10)}; scriviFatte(F); }
   const giudizio = pct>=90?"Ottimo.":pct>=75?"Buono: ripassa le poche sbagliate.":pct>=60?"Sufficiente: guarda bene gli errori qui sotto.":"Da ripassare: rileggi gli argomenti delle domande sbagliate.";
   app.innerHTML = `
     <div class="card">
