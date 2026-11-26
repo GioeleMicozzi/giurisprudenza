@@ -1,5 +1,5 @@
 {
- "aggiornato": "26/11/2026 08:56",
+ "aggiornato": "26/11/2026 09:01",
  "tipi": [
   {
    "tipo": "trascrizione",
@@ -998,6 +998,12 @@
    "link": "https://t.me/c/4330041943/22",
    "file": [
     {
+     "tipo": "cumulativo",
+     "titolo": "Riassunto completo, aggiornato con il 25/11",
+     "data": "2026-11-26",
+     "link": "https://t.me/c/4330041943/22/188"
+    },
+    {
      "tipo": "slide",
      "titolo": "Slide NotebookLM complete",
      "data": "2026-11-25",
@@ -1020,12 +1026,6 @@
      "titolo": "25/11 · Convegno - La violenza oltre la violenza, la vittimizzazione secondaria",
      "data": "2026-11-25",
      "link": "https://t.me/c/4330041943/22/319"
-    },
-    {
-     "tipo": "cumulativo",
-     "titolo": "Riassunto completo, aggiornato con il 19/11",
-     "data": "2026-11-22",
-     "link": "https://t.me/c/4330041943/22/188"
     },
     {
      "tipo": "trascrizione",
