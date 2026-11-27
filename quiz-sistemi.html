@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Quiz Sistemi giuridici comparati</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1d1f24; --muted:#636873; --line:#e2ded5;
+  --accent:#2f5d8a; --accent-ink:#ffffff; --soft:#e9eff6;
+  --ok:#1f7a4a; --ok-bg:#e3f3ea; --ko:#b23a32; --ko-bg:#f9e4e2;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171b; --card:#1f2228; --ink:#eceef2; --muted:#a2a8b3; --line:#30343c;
+    --accent:#7fb0e0; --accent-ink:#0f1720; --soft:#22303f;
+    --ok:#6fd19a; --ok-bg:#183527; --ko:#f08a80; --ko-bg:#3d1f1d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171b; --card:#1f2228; --ink:#eceef2; --muted:#a2a8b3; --line:#30343c;
+  --accent:#7fb0e0; --accent-ink:#0f1720; --soft:#22303f;
+  --ok:#6fd19a; --ok-bg:#183527; --ko:#f08a80; --ko-bg:#3d1f1d;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+h1{font-size:1.45rem;margin:4px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.modi{display:grid;gap:10px;margin-bottom:22px}
+.modo{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font:inherit;cursor:pointer}
+.modo:hover{border-color:var(--accent)}
+.modo b{display:block;font-size:1.02rem}
+.modo span{color:var(--muted);font-size:.9rem}
+.modo.principale{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.modo.principale span{color:inherit;opacity:.85}
+.modo[disabled]{opacity:.5;cursor:default}
+h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 10px}
+.temi{display:grid;gap:6px}
+.tema{display:flex;justify-content:space-between;gap:10px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:inherit;text-align:left;padding:10px 2px;cursor:pointer}
+.tema:hover{color:var(--accent)}
+.tema small{color:var(--muted);white-space:nowrap}
+.tema.fatto>span{color:var(--muted)}
+.tema.fatto small{color:var(--ok);font-weight:600}
+.tema .spunta{color:var(--ok);font-weight:700;margin-right:6px}
+.barra{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 16px}
+.barra i{display:block;height:100%;background:var(--accent);transition:width .2s}
+.testa{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:.88rem}
+.etichetta{display:inline-block;background:var(--soft);color:var(--accent);border-radius:99px;padding:2px 10px;font-size:.8rem;font-weight:600;margin-bottom:10px}
+.domanda{font-size:1.15rem;font-weight:600;margin:0 0 16px;line-height:1.4}
+.opzioni{display:grid;gap:9px}
+.opz{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;cursor:pointer;line-height:1.4}
+.opz:hover:not([disabled]){border-color:var(--accent)}
+.opz .l{flex:none;width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:-1px}
+.opz[disabled]{cursor:default}
+.opz.giusta{border-color:var(--ok);background:var(--ok-bg)}
+.opz.giusta .l{background:var(--ok);color:var(--card)}
+.opz.sbagliata{border-color:var(--ko);background:var(--ko-bg)}
+.opz.sbagliata .l{background:var(--ko);color:var(--card)}
+.esito{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.95rem}
+.esito.ok{background:var(--ok-bg);color:var(--ink);border-left:4px solid var(--ok)}
+.esito.ko{background:var(--ko-bg);color:var(--ink);border-left:4px solid var(--ko)}
+.esito b{display:block;margin-bottom:2px}
+.azioni{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:16px;flex-wrap:wrap}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.btn.sec{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.punti{font-size:2.6rem;font-weight:700;margin:4px 0;letter-spacing:-.02em}
+.voto{color:var(--muted);margin:0 0 14px}
+.errore{border-top:1px solid var(--line);padding:12px 0}
+.errore p{margin:0 0 4px}
+.errore .tua{color:var(--ko)}
+.errore .ok{color:var(--ok);font-weight:600}
+.errore .sp{color:var(--muted);font-size:.92rem}
+.nota{color:var(--muted);font-size:.85rem;margin-top:22px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const DATI = {"materia": "Sistemi giuridici comparati", "titolo": "Quiz di ripasso", "domande": [{"tema": "Dal diritto romano all'alto Medioevo", "settimana": "2026-11-27", "domanda": "Il Corpus iuris civilis è compilato:", "giusta": "fra il 529 e il 534, in Oriente, per volere di Giustiniano", "sbagliate": ["nel 476, a Roma, alla caduta dell'Impero d'Occidente", "nel XII secolo a Bologna, da Irnerio"], "spiegazione": "Commissioni di giuristi guidate da Triboniano; secoli dopo diventa la base del diritto comune europeo."}, {"tema": "La rinascita giuridica: università e diritto comune", "settimana": "2026-11-27", "domanda": "Lo ius commune romano-canonico nasce:", "giusta": "dalle glosse al Corpus unite al diritto canonico, e convive con gli iura propria", "sbagliate": ["dalle codificazioni del Settecento, che abrogano gli iura propria", "dal Decretum di Graziano da solo, senza il diritto romano"], "spiegazione": "Un diritto romano attualizzato e ispirato ai principi della Chiesa, accanto a statuti e consuetudini locali."}, {"tema": "Le codificazioni", "settimana": "2026-11-27", "domanda": "Che differenza c'è fra codice e consolidazione?", "giusta": "la consolidazione raccoglie in un'unica fonte le norme vigenti senza rompere con il passato", "sbagliate": ["la consolidazione è un codice non ancora promulgato", "il codice raccoglie le norme vigenti, la consolidazione le abroga tutte"], "spiegazione": "Il requisito più importante per distinguerli è l'unificazione del soggetto di diritto."}, {"tema": "Il Code civil del 1804", "settimana": "2026-11-27", "domanda": "L'art. 4 del Code civil:", "giusta": "vieta al giudice di rifiutarsi di decidere per silenzio, oscurità o insufficienza della legge", "sbagliate": ["vieta al giudice di pronunciare disposizioni generali e regolamentari", "abroga il diritto anteriore nelle materie che il codice disciplina"], "spiegazione": "È il divieto di diniego di giustizia; il divieto degli arrêts de règlement è l'art. 5, l'abrogazione l'art. 7 della legge del 21 marzo 1804."}, {"tema": "La Francia di oggi: Costituzione e giustizia", "settimana": "2026-11-27", "domanda": "La QPC (question prioritaire de constitutionnalité):", "giusta": "dal 2010 permette di contestare in un processo una legge già in vigore che lede diritti e libertà", "sbagliate": ["permette a 60 deputati di impugnare una legge prima della promulgazione", "è un ricorso diretto del cittadino al Conseil constitutionnel"], "spiegazione": "Il giudice trasmette a Cour de cassation o Conseil d'État, che filtrano e rinviano; l'effetto è l'abrogazione non retroattiva."}, {"tema": "La prima ondata: dal Settecento all'ABGB", "settimana": "2026-11-27", "domanda": "Perché l'ALR prussiano è considerato più una consolidazione che un codice moderno?", "giusta": "perché non elimina i ceti e abbraccia più ambiti del diritto, non solo il privato", "sbagliate": ["perché è scritto ancora in latino", "perché è stato emanato prima del Code civil"], "spiegazione": "Manca l'unificazione del soggetto di diritto; i diritti provinciali restano e si applicano per primi."}, {"tema": "La prima ondata: dal Settecento all'ABGB", "settimana": "2026-11-27", "domanda": "Per il § 7 ABGB, se un caso non si decide dalle parole né dal senso della legge, il giudice ricorre:", "giusta": "prima all'analogia, poi ai principi del diritto naturale", "sbagliate": ["prima alla consuetudine, poi alla regola che adotterebbe come legislatore", "alla Commissione legislativa"], "spiegazione": "La seconda risposta è il § 1 ZGB; la terza è il giudice prussiano dell'ALR."}, {"tema": "La polemica sulla codificazione: Thibaut e Savigny (1814)", "settimana": "2026-11-27", "domanda": "Perché Savigny si oppone al codice proposto da Thibaut?", "giusta": "perché cristallizzerebbe il diritto, che cresce nella storia come una lingua", "sbagliate": ["perché vuole un codice sul modello del Code civil", "perché il diritto romano va superato"], "spiegazione": "Il diritto è espressione dello spirito del popolo; i tempi non sono maturi, serve prima la scienza giuridica."}, {"tema": "Dalla Scuola storica alla Pandettistica", "settimana": "2026-11-27", "domanda": "Il metodo dei pandettisti è:", "giusta": "concettuale, dogmatico e sistematico", "sbagliate": ["esegetico, letterale e storico", "casistico, induttivo e giurisprudenziale"], "spiegazione": "Esempio del metodo concettuale: il negozio giuridico, invenzione pandettistica."}, {"tema": "La parte generale e le clausole generali", "settimana": "2026-11-27", "domanda": "Le clausole generali del BGB (§§ 138, 242, 826):", "giusta": "rinviano a buoni costumi e buona fede e fanno da valvola di sfogo di un sistema chiuso", "sbagliate": ["sono le norme della parte generale su persone e capacità", "sono state introdotte dalla riforma delle obbligazioni del 2002"], "spiegazione": "Hanno adattato il BGB alla prima metà del Novecento, in positivo (inflazione) e in negativo (nazismo)."}, {"tema": "La parte generale e le clausole generali", "settimana": "2026-11-27", "domanda": "Secondo l'Abstraktionsprinzip, nella vendita di un'auto pagata e ritirata subito gli accordi sono:", "giusta": "tre: la vendita, l'accordo reale sul bene e l'accordo reale sul denaro", "sbagliate": ["uno solo, come nel contratto unico italiano", "due: il contratto e la consegna"], "spiegazione": "Ogni operazione si spacchetta in tanti atti quante sono le fasi; se salta un passaggio si invalida solo quella fase."}, {"tema": "Il codice civile svizzero (ZGB)", "settimana": "2026-11-27", "domanda": "Per il § 1, comma 2, ZGB, nei casi non previsti dalla legge il giudice decide:", "giusta": "secondo la consuetudine e, in difetto, secondo la regola che adotterebbe come legislatore", "sbagliate": ["secondo i principi del diritto naturale", "rimettendo la questione al Parlamento federale"], "spiegazione": "È la «deliberata incompletezza» di Zweigert e Kötz, opposta all'art. 4 del Code civil."}, {"tema": "Il codice civile svizzero (ZGB)", "settimana": "2026-11-27", "domanda": "Il codice civile turco del 1926 ricalca:", "giusta": "lo ZGB svizzero", "sbagliate": ["il BGB tedesco", "il Code civil francese"], "spiegazione": "Atatürk sceglie un codice aperto per modernizzare un Paese pieno di consuetudini e regole religiose: un trapianto riuscito."}]};
+const D = DATI.domande.map(d=>({...d,id:d.domanda}));
+const PER_ID = Object.fromEntries(D.map(d=>[d.id,d]));
+const ULTIMA = D.map(d=>d.settimana||"").sort().pop()||"";
+const NUOVE = ULTIMA?D.filter(d=>d.settimana===ULTIMA):[];
+const TEMI = [...new Set(D.map(d=>d.tema))];
+const CHIAVE = "quiz-sistemi-errori";
+const app = document.getElementById("app");
+let giro = null;
+
+function leggiErrori(){ try{ return JSON.parse(localStorage.getItem(CHIAVE)||"[]"); }catch(e){ return []; } }
+function scriviErrori(a){ try{ localStorage.setItem(CHIAVE, JSON.stringify(a)); }catch(e){} }
+const CHIAVE_FATTE = CHIAVE.replace(/-errori$/,"")+"-fatte";
+function leggiFatte(){ try{ return JSON.parse(localStorage.getItem(CHIAVE_FATTE)||'{"viste":[],"temi":{}}'); }catch(e){ return {viste:[],temi:{}}; } }
+function scriviFatte(f){ try{ localStorage.setItem(CHIAVE_FATTE, JSON.stringify(f)); }catch(e){} }
+function mescola(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function home(){
+  giro = null;
+  const err = leggiErrori().filter(id=>PER_ID[id]);
+  const F = leggiFatte(), viste = new Set(F.viste);
+  const temiFatti = TEMI.filter(t=>D.filter(d=>d.tema===t).every(d=>viste.has(d.id))).length;
+  app.innerHTML = `
+    <h1>${esc(DATI.materia)}</h1>
+    <p class="sub">${esc(DATI.titolo)}: ${D.length} domande a risposta chiusa prese dal riassunto. Dopo ogni risposta vedi quella giusta e il perché.</p>
+    <div class="modi">
+      <button class="modo principale" data-m="sim"><div><b>Simulazione</b><span>30 domande a caso da tutti gli argomenti</span></div><span>→</span></button>
+      ${NUOVE.length && NUOVE.length<D.length?`<button class="modo" data-m="nuove"><div><b>Questa settimana</b><span>le domande aggiunte il ${esc(ULTIMA.split("-").reverse().join("/"))}</span></div><span>${NUOVE.length}</span></button>`:""}
+      <button class="modo" data-m="tutte"><div><b>Tutte le domande</b><span>in ordine casuale</span></div><span>${D.length}</span></button>
+      <button class="modo" data-m="err" ${err.length?"":"disabled"}><div><b>Ripassa gli errori</b><span>${err.length?"le domande sbagliate finora":"ancora nessun errore salvato"}</span></div><span>${err.length||""}</span></button>
+    </div>
+    <h2>Per argomento · ${temiFatti} di ${TEMI.length} fatti</h2>
+    <div class="temi">${TEMI.map((t,i)=>{ const dd=D.filter(d=>d.tema===t), fatte=dd.filter(d=>viste.has(d.id)).length, ok=fatte===dd.length, ult=F.temi[t];
+      const info= ok ? `fatto${ult?` · ${ult.giuste}/${ult.n} giuste`:""}` : fatte ? `${fatte}/${dd.length} fatte` : `${dd.length} domande`;
+      return `<button class="tema${ok?" fatto":""}" data-t="${i}"><span>${ok?'<span class="spunta" aria-label="fatto">✓</span>':""}${esc(t)}</span><small>${info}</small></button>`; }).join("")}</div>`;
+  app.querySelectorAll(".modo").forEach(b=>b.onclick=()=>{
+    const m=b.dataset.m;
+    if(m==="sim") inizia(mescola(D).slice(0,30),"Simulazione");
+    if(m==="tutte") inizia(mescola(D),"Tutte le domande");
+    if(m==="nuove") inizia(mescola(NUOVE),"Questa settimana");
+    if(m==="err") inizia(mescola(leggiErrori().filter(id=>PER_ID[id]).map(id=>PER_ID[id])),"Ripasso degli errori");
+  });
+  app.querySelectorAll(".tema").forEach(b=>b.onclick=()=>{ const t=TEMI[+b.dataset.t]; inizia(mescola(D.filter(d=>d.tema===t)),t); });
+  window.scrollTo(0,0);
+}
+
+function inizia(lista,nome){
+  giro = {lista:lista.map(d=>({d,opz:mescola([d.giusta,...d.sbagliate])})), nome, i:0, giuste:0, sbagliate:[]};
+  mostra();
+}
+
+function mostra(){
+  const g=giro, q=g.lista[g.i], n=g.lista.length;
+  app.innerHTML = `
+    <div class="testa"><span>${esc(g.nome)}</span><span>${g.i+1} / ${n} · ${g.giuste} giuste</span></div>
+    <div class="barra"><i style="width:${(g.i)/n*100}%"></i></div>
+    <div class="card">
+      <span class="etichetta">${esc(q.d.tema)}</span>
+      <p class="domanda">${esc(q.d.domanda)}</p>
+      <div class="opzioni">${q.opz.map((o,k)=>`<button class="opz" data-k="${k}"><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("")}</div>
+      <div id="esito"></div>
+    </div>
+    <div class="azioni"><button class="btn sec" id="esci">Torna all'inizio</button><span></span></div>`;
+  app.querySelectorAll(".opz").forEach(b=>b.onclick=()=>rispondi(+b.dataset.k));
+  document.getElementById("esci").onclick=home;
+  window.scrollTo(0,0);
+}
+
+function rispondi(k){
+  const g=giro, q=g.lista[g.i];
+  if(q.data!==undefined) return;
+  q.data=k;
+  const scelta=q.opz[k], ok=scelta===q.d.giusta;
+  const err=new Set(leggiErrori());
+  if(ok){ g.giuste++; err.delete(q.d.id); } else { g.sbagliate.push({q,scelta}); err.add(q.d.id); }
+  scriviErrori([...err]);
+  const F=leggiFatte(); if(!F.viste.includes(q.d.id)){ F.viste.push(q.d.id); scriviFatte(F); }
+  app.querySelectorAll(".opz").forEach(b=>{
+    b.disabled=true; const o=q.opz[+b.dataset.k];
+    if(o===q.d.giusta) b.classList.add("giusta"); else if(+b.dataset.k===k) b.classList.add("sbagliata");
+  });
+  const sp=q.d.spiegazione?`<div>${esc(q.d.spiegazione)}</div>`:"";
+  document.getElementById("esito").innerHTML = ok
+    ? `<div class="esito ok"><b>Giusto</b>${sp}</div>`
+    : `<div class="esito ko"><b>Sbagliato. Era: ${esc(q.d.giusta)}</b>${sp}</div>`;
+  const ultima=g.i===g.lista.length-1;
+  const az=app.querySelector(".azioni span");
+  az.outerHTML=`<button class="btn" id="avanti">${ultima?"Vedi il risultato":"Avanti →"}</button>`;
+  document.getElementById("avanti").onclick=()=>{ if(ultima) fine(); else { g.i++; mostra(); } };
+  document.getElementById("avanti").focus({preventScroll:true});
+  app.querySelector(".testa span:last-child").textContent=`${g.i+1} / ${g.lista.length} · ${g.giuste} giuste`;
+}
+
+function fine(){
+  const g=giro, n=g.lista.length, pct=Math.round(g.giuste/n*100);
+  if(TEMI.includes(g.nome)){ const F=leggiFatte(); F.temi[g.nome]={giuste:g.giuste,n,data:new Date().toISOString().slice(0,10)}; scriviFatte(F); }
+  const giudizio = pct>=90?"Ottimo.":pct>=75?"Buono: ripassa le poche sbagliate.":pct>=60?"Sufficiente: guarda bene gli errori qui sotto.":"Da ripassare: rileggi gli argomenti delle domande sbagliate.";
+  app.innerHTML = `
+    <div class="card">
+      <div class="testa"><span>${esc(g.nome)}</span><span>finito</span></div>
+      <div class="punti">${g.giuste} / ${n}</div>
+      <p class="voto">${pct}% di risposte giuste. ${giudizio}</p>
+      ${g.sbagliate.length?`<h2>Le domande sbagliate</h2>`+g.sbagliate.map(({q,scelta})=>`
+        <div class="errore"><p><b>${esc(q.d.domanda)}</b></p>
+        <p class="tua">Hai risposto: ${esc(scelta)}</p>
+        <p class="ok">Giusta: ${esc(q.d.giusta)}</p>
+        ${q.d.spiegazione?`<p class="sp">${esc(q.d.spiegazione)}</p>`:""}</div>`).join(""):""}
+    </div>
+    <div class="azioni">
+      <button class="btn sec" id="casa">Torna all'inizio</button>
+      ${g.sbagliate.length?`<button class="btn" id="rifai">Rifai le sbagliate</button>`:`<button class="btn" id="nuova">Nuova simulazione</button>`}
+    </div>`;
+  document.getElementById("casa").onclick=home;
+  const r=document.getElementById("rifai"); if(r) r.onclick=()=>inizia(mescola(g.sbagliate.map(s=>s.q.d)),"Rifai le sbagliate");
+  const nu=document.getElementById("nuova"); if(nu) nu.onclick=()=>inizia(mescola(D).slice(0,30),"Simulazione");
+  window.scrollTo(0,0);
+}
+
+document.addEventListener("keydown",e=>{
+  if(!giro||!app.querySelector(".opz")) return;
+  const k="1234".indexOf(e.key), kl="abcd".indexOf(e.key.toLowerCase());
+  const q=giro.lista[giro.i];
+  if(q && q.data===undefined && (k>=0||kl>=0)){ rispondi(k>=0?k:kl); e.preventDefault(); }
+  else if(e.key==="Enter"){ const a=document.getElementById("avanti"); if(a){ a.click(); e.preventDefault(); } }
+});
+
+home();
+</script>
+</body>
+</html>
