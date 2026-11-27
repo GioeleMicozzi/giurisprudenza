@@ -41,6 +41,27 @@
   .freccia { color: var(--tenue); flex: none; }
   .vuoto { padding: 18px 14px; color: var(--tenue); text-align: center; }
   .piede { color: var(--tenue); font-size: 12px; text-align: center; margin-top: 16px; }
+  .titoletto { color: var(--tenue); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; margin: 18px 4px 6px; }
+  .scheda { padding: 13px 14px; border-top: 1px solid var(--linea); }
+  .scheda:first-child { border-top: 0; }
+  .scheda h3 { margin: 0 0 8px; font-size: 16px; }
+  .righe { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-size: 14px; margin-top: 10px; }
+  .righe dt { color: var(--tenue); } .righe dd { margin: 0; }
+  .sett { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .g { border: 1px solid var(--linea); border-radius: 8px; padding: 5px 0 6px; text-align: center; font-size: 12px;
+       color: var(--tenue); display: grid; gap: 4px; justify-items: center; }
+  .g b { color: var(--testo); font-weight: 600; font-size: 12px; }
+  .g i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--linea); }
+  .g.fatta i { background: var(--testo); border-color: var(--testo); }
+  .g.incorso i { background: linear-gradient(90deg, var(--testo) 50%, transparent 50%); border-color: var(--testo); }
+  .g.prevista i { border-style: dashed; border-color: var(--testo); }
+  .g.rev { border-color: #c79a3a; background: color-mix(in srgb, #c79a3a 16%, transparent); }
+  .g.rev.fatta i, .g.rev.incorso i { background: #c79a3a; border-color: #c79a3a; }
+  .g.rev.prevista i { border-color: #c79a3a; }
+  .g.oggi { box-shadow: inset 0 -2px 0 var(--testo); }
+  .pallino { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .p-err { background: #d0453a; } .p-warn { background: #d79b22; } .p-info { background: #4f7fc0; }
+  .legenda { color: var(--tenue); font-size: 12px; margin: 6px 4px 0; }
   .sezione-link { display: block; text-align: center; margin-top: 12px; color: var(--accento); text-decoration: none; font-size: 15px; }
 </style>
 </head>
@@ -90,6 +111,8 @@ function su() { pila.pop(); disegna(); }
 function disegna() {
   const elenco = $("elenco"), extra = $("extra");
   elenco.innerHTML = ""; extra.innerHTML = "";
+  $("cerca").hidden = false;
+  if (dati) $("piede").textContent = "Aggiornato il " + dati.aggiornato + " · i file si aprono nel gruppo Telegram";
   const cerca = $("cerca").value.trim().toLowerCase();
   const [anno, nome, t] = pila;
   $("indietro").hidden = pila.length === 0 || !!cerca;
@@ -108,8 +131,15 @@ function disegna() {
     return;
   }
 
+  if (anno === PANNELLO) { disegnaPannello(elenco, extra); return; }
+
   if (!anno) {
     $("titolo").textContent = "Giurisprudenza";
+    if (pannello) {
+      const n = pannello.da_guardare.length;
+      aggiungi(voce({ emoji: "📊", titolo: "Pannello dello studio", sotto: `routine: ${pannello.routine}` +
+        (n ? ` · ${n} ${n === 1 ? "cosa" : "cose"} da guardare` : " · tutto in pari"), azione: () => vai(PANNELLO) }));
+    }
     const anni = [...new Set(dati.materie.map(m => m.anno))];
     anni.forEach(a => {
       const ms = dati.materie.filter(m => m.anno === a);
@@ -148,11 +178,74 @@ function disegna() {
   if (!file.length) elenco.innerHTML = `<div class="vuoto">Ancora nessun file</div>`;
 }
 
+// ---- Pannello dello studio (pannello.json, lo scrive pannello.py ogni volta che cambia qualcosa)
+const PANNELLO = "Pannello dello studio";
+let pannello = null;
+const GG = ["Lun", "Mar", "Mer", "Gio", "Ven"];
+const MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+const breve = s => `${+s.slice(8, 10)} ${MESI[+s.slice(5, 7) - 1]}`;
+const oggiIso = () => { const x = new Date(); return `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`; };
+const traGiorni = s => Math.round((new Date(s + "T00:00") - new Date(oggiIso() + "T00:00")) / 864e5);
+const testo = (tag, cls, t) => { const el = document.createElement(tag); if (cls) el.className = cls; el.textContent = t; return el; };
+
+function disegnaPannello(elenco, extra) {
+  $("titolo").textContent = PANNELLO;
+  $("cerca").hidden = true;
+  const P = pannello;
+  elenco.appendChild(voce({ emoji: "⚙️", titolo: "Routine", sotto: P.routine, freccia: false, azione: () => {} }));
+  const es = P.esami.filter(x => traGiorni(x.data) >= 0)[0];
+  if (es) { const g = traGiorni(es.data);
+    elenco.appendChild(voce({ emoji: "🗓", titolo: `Prossimo esame: ${g === 0 ? "oggi" : `tra ${g} giorni`}`,
+      sotto: `${es.materia} · ${breve(es.data)}`, freccia: false, azione: () => {} })); }
+
+  extra.appendChild(testo("div", "titoletto", "Da guardare"));
+  const dg = document.createElement("div"); dg.className = "elenco";
+  if (!P.da_guardare.length) dg.innerHTML = `<div class="vuoto">Tutto in pari</div>`;
+  P.da_guardare.forEach(v => {
+    const b = voce({ titolo: v.titolo, sotto: v.sotto, freccia: false, azione: () => {} });
+    b.querySelector(".emoji").innerHTML = `<span class="pallino p-${v.classe}" style="display:inline-block"></span>`;
+    dg.appendChild(b);
+  });
+  extra.appendChild(dg);
+
+  extra.appendChild(testo("div", "titoletto", "Materie · questa settimana"));
+  const cls = { "fatta": "fatta", "in corso": "incorso", "prevista": "prevista" };
+  const ms = document.createElement("div"); ms.className = "elenco";
+  const oggi = oggiIso();
+  P.materie.forEach(m => {
+    const s = document.createElement("div"); s.className = "scheda";
+    s.appendChild(testo("h3", "", m.nome));
+    const sett = document.createElement("div"); sett.className = "sett";
+    m.giorni.forEach((g, i) => {
+      const c = document.createElement("div");
+      c.className = `g ${cls[g.lezione] || ""} ${g.revisione ? "rev" : ""} ${g.data === oggi ? "oggi" : ""}`;
+      c.appendChild(testo("b", "", `${GG[i]} ${+g.data.slice(8, 10)}`)); c.appendChild(document.createElement("i"));
+      sett.appendChild(c);
+    });
+    s.appendChild(sett);
+    const dl = document.createElement("dl"); dl.className = "righe";
+    const riga = (k, v) => { if (v === null || v === undefined || v === "") return; dl.appendChild(testo("dt", "", k)); dl.appendChild(testo("dd", "", v)); };
+    riga("Lezioni", `${m.completate} fatte` + (m.ultima ? ` · ultima ${breve(m.ultima)}` : "") +
+                    (m.da_lavorare ? ` · ${m.da_lavorare} da lavorare` : ""));
+    riga("Revisione", m.revisione);
+    if (m.esame) { const g = traGiorni(m.esame); riga("Esame", `${breve(m.esame)} · ${g === 0 ? "oggi" : `tra ${g} giorni`}`); }
+    if (m.pdf_pagine) riga("Riassunto", `${m.pdf_pagine} pagine`);
+    if (m.norme) riga("Norme", `${m.norme[0]}/${m.norme[1]} controllate`);
+    if (m.quiz) riga("Quiz", `${m.quiz} domande`);
+    s.appendChild(dl);
+    ms.appendChild(s);
+  });
+  extra.appendChild(ms);
+  extra.appendChild(testo("p", "legenda", "Pallino pieno = lezione lavorata, mezzo = da lavorare, tratteggiato = prevista; in oro il giorno della revisione completa. Si guarda soltanto: i pulsanti sono nel pannello sul Mac."));
+  $("piede").textContent = "Pannello aggiornato il " + P.aggiornato;
+}
+
 let tipiPerNome = {};
 $("indietro").onclick = su;
 if (tg && tg.BackButton) tg.BackButton.onClick(su);
 $("cerca").oninput = disegna;
 
+fetch("pannello.json?" + Date.now()).then(r => r.ok ? r.json() : null).then(p => { pannello = p; if (dati) disegna(); }).catch(() => {});
 fetch("dati.json?" + Date.now()).then(r => r.json()).then(d => {
   dati = d;
   tipiPerNome = Object.fromEntries(d.tipi.map(x => [x.tipo, x.nome]));

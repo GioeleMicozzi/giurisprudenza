@@ -1,0 +1,267 @@
+{
+ "aggiornato": "27/11/2026 12:42",
+ "routine": "turno occupato",
+ "esami": [
+  {
+   "data": "2026-12-14",
+   "materia": "Sistemi giuridici comparati"
+  },
+  {
+   "data": "2026-12-15",
+   "materia": "Diritto del lavoro"
+  },
+  {
+   "data": "2026-12-17",
+   "materia": "Inglese"
+  },
+  {
+   "data": "2027-01-18",
+   "materia": "Diritto commerciale"
+  },
+  {
+   "data": "2027-01-20",
+   "materia": "Fondamenti dell'argomentazione normativa"
+  }
+ ],
+ "da_guardare": [
+  {
+   "classe": "warn",
+   "titolo": "Diritto del lavoro: 4 norme da guardare",
+   "sotto": "il controllo su Normattiva ha trovato qualcosa da sistemare alla revisione"
+  },
+  {
+   "classe": "warn",
+   "titolo": "Sistemi giuridici comparati: lezione del 26 nov",
+   "sotto": "aspetta i materiali su Moodle"
+  },
+  {
+   "classe": "warn",
+   "titolo": "Sistemi giuridici comparati: 6 norme da guardare",
+   "sotto": "il controllo su Normattiva ha trovato qualcosa da sistemare alla revisione"
+  },
+  {
+   "classe": "warn",
+   "titolo": "Diritto commerciale: 33 norme da guardare",
+   "sotto": "il controllo su Normattiva ha trovato qualcosa da sistemare alla revisione"
+  },
+  {
+   "classe": "info",
+   "titolo": "Diritto del lavoro: lezione del 26 nov",
+   "sotto": "in lavorazione · mancano 4 passi"
+  },
+  {
+   "classe": "info",
+   "titolo": "Fondamenti dell'argomentazione normativa: 7 slide arrivate",
+   "sotto": "le controlla la routine"
+  }
+ ],
+ "materie": [
+  {
+   "nome": "Inglese",
+   "completate": 12,
+   "ultima": "2026-11-09",
+   "da_lavorare": 0,
+   "moodle": 0,
+   "esame": "2026-12-17",
+   "pdf_pagine": 25,
+   "norme": null,
+   "quiz": null,
+   "giorni": [
+    {
+     "data": "2026-11-23",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-24",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-25",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-26",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-27",
+     "lezione": null,
+     "revisione": false
+    }
+   ],
+   "revisione": "nessuna lezione dal 9 nov"
+  },
+  {
+   "nome": "Diritto del lavoro",
+   "completate": 35,
+   "ultima": "2026-11-25",
+   "da_lavorare": 1,
+   "moodle": 0,
+   "esame": "2026-12-15",
+   "pdf_pagine": 51,
+   "norme": [
+    91,
+    130
+   ],
+   "quiz": null,
+   "giorni": [
+    {
+     "data": "2026-11-23",
+     "lezione": "fatta",
+     "revisione": false
+    },
+    {
+     "data": "2026-11-24",
+     "lezione": "fatta",
+     "revisione": false
+    },
+    {
+     "data": "2026-11-25",
+     "lezione": "fatta",
+     "revisione": false
+    },
+    {
+     "data": "2026-11-26",
+     "lezione": "in corso",
+     "revisione": true
+    },
+    {
+     "data": "2026-11-27",
+     "lezione": null,
+     "revisione": false
+    }
+   ],
+   "revisione": "giovedì 26 nov, la lezione è ancora da lavorare"
+  },
+  {
+   "nome": "Fondamenti dell'argomentazione normativa",
+   "completate": 17,
+   "ultima": "2026-11-20",
+   "da_lavorare": 0,
+   "moodle": 0,
+   "esame": "2027-01-20",
+   "pdf_pagine": 38,
+   "norme": [
+    1,
+    1
+   ],
+   "quiz": 148,
+   "giorni": [
+    {
+     "data": "2026-11-23",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-24",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-25",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-26",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-27",
+     "lezione": "prevista",
+     "revisione": true
+    }
+   ],
+   "revisione": "oggi, se c'è lezione"
+  },
+  {
+   "nome": "Sistemi giuridici comparati",
+   "completate": 18,
+   "ultima": "2026-11-25",
+   "da_lavorare": 1,
+   "moodle": 1,
+   "esame": "2026-12-14",
+   "pdf_pagine": 49,
+   "norme": [
+    29,
+    37
+   ],
+   "quiz": 13,
+   "giorni": [
+    {
+     "data": "2026-11-23",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-24",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-25",
+     "lezione": "fatta",
+     "revisione": false
+    },
+    {
+     "data": "2026-11-26",
+     "lezione": "in corso",
+     "revisione": false
+    },
+    {
+     "data": "2026-11-27",
+     "lezione": "prevista",
+     "revisione": true
+    }
+   ],
+   "revisione": "oggi, se c'è lezione"
+  },
+  {
+   "nome": "Diritto commerciale",
+   "completate": 3,
+   "ultima": "2026-11-20",
+   "da_lavorare": 0,
+   "moodle": 0,
+   "esame": "2027-01-18",
+   "pdf_pagine": 34,
+   "norme": [
+    187,
+    280
+   ],
+   "quiz": null,
+   "giorni": [
+    {
+     "data": "2026-11-23",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-24",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-25",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-26",
+     "lezione": null,
+     "revisione": false
+    },
+    {
+     "data": "2026-11-27",
+     "lezione": "prevista",
+     "revisione": true
+    }
+   ],
+   "revisione": "oggi, se c'è lezione"
+  }
+ ]
+}
