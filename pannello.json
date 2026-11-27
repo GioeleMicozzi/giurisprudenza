@@ -1,5 +1,5 @@
 {
- "aggiornato": "27/11/2026 12:42",
+ "aggiornato": "27/11/2026 13:15",
  "routine": "turno occupato",
  "esami": [
   {
@@ -51,7 +51,17 @@
   },
   {
    "classe": "info",
+   "titolo": "Diritto del lavoro: slide «L'estinzione del rapporto di lavoro»",
+   "sotto": "le controlla la routine"
+  },
+  {
+   "classe": "info",
    "titolo": "Fondamenti dell'argomentazione normativa: 7 slide arrivate",
+   "sotto": "le controlla la routine"
+  },
+  {
+   "classe": "info",
+   "titolo": "Sistemi giuridici comparati: 4 slide arrivate",
    "sotto": "le controlla la routine"
   }
  ],
