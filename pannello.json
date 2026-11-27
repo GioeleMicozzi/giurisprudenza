@@ -1,5 +1,5 @@
 {
- "aggiornato": "27/11/2026 13:15",
+ "aggiornato": "27/11/2026 13:25",
  "routine": "turno occupato",
  "esami": [
   {
@@ -26,7 +26,7 @@
  "da_guardare": [
   {
    "classe": "warn",
-   "titolo": "Diritto del lavoro: 4 norme da guardare",
+   "titolo": "Diritto del lavoro: 5 norme da guardare",
    "sotto": "il controllo su Normattiva ha trovato qualcosa da sistemare alla revisione"
   },
   {
@@ -114,7 +114,7 @@
    "esame": "2026-12-15",
    "pdf_pagine": 51,
    "norme": [
-    91,
+    90,
     130
    ],
    "quiz": null,
